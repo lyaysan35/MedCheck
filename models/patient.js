@@ -5,7 +5,9 @@ const patientSchema = new mongoose.Schema({
     age: {type: Number, required: true},
     completed: [{
         type: mongoose.Schema.Types.Array,
-        ref: 'Procedure'
+        name: String,
+        rounds: {type: Number, required: true},
+        completed: Boolean
     }]
 })
 

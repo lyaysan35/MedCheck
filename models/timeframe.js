@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const timeframeSchema = new mongoose.Schema({
     months: {type: Number, required: true},
     procedures: [{
+        type: mongoose.Schema.Types.Array,
         name: String,
-        completed: Boolean
+        rounds: {type: Number, required: true}
     }]
 });
 
