@@ -5,6 +5,41 @@ const User = require('../models/user');
 const Timeframe = require('../models/timeframe')
 const bcrypt = require('bcryptjs');
 
+// LOGIN 
+router.post('/login', async (req, res) => {
+    try {
+        const foundUser = await User.findOne({username: req.body.username});
+        if(foundUser) {
+            if(bcrypt.compareSync(req.body.password, foundUser.password)){
+                req.session.message = '';
+                req.session.username = foundUser.username;
+                req.session.userId = foundUser._id;
+                req.session.logged = true;
+
+                res.redirect('/users');
+            } else {
+                req.session.message = 'Username or Password is Incorrect';
+                res.redirect('/');
+            }
+        } else {
+            req.session.message = 'Username or Password is Incorrect';
+            res.redirect('/');
+        }
+    } catch(err) {
+        res.send(err);
+    }
+})
+
+// LOGOUT
+router.get('/logout', async (req, res) => {
+    try {
+        req.session.destroy;
+        res.redirect('/');
+    } catch (err) {
+        res.send(err)
+    }
+})
+
 // NEW ROUTE
 router.get('/new', async (req, res) => {
     try {
@@ -31,10 +66,11 @@ router.post('/registration', async (req, res) => {
         res.send(err);
     }
 })
+
 // EDIT ROUTE
 router.get('/:id/edit', async (req, res) => {
     try {
-        const foundUser = await User.findOne(req.session.userId);
+        const foundUser = await User.findOne({_id: req.session.userId});
         res.render('users/edit.ejs', {
             user: foundUser
         })
@@ -44,7 +80,7 @@ router.get('/:id/edit', async (req, res) => {
 })
 router.put('/:id', async (req, res) => {
     try {
-        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const updatedUser = await User.findByIdAndUpdate(req.session.userId, req.body, {new: true});
         req.session.username = updatedUser.username;
         res.redirect('/users')
     } catch (err) {
@@ -68,7 +104,7 @@ router.get('/:id', async (req, res) => {
 // INDEX ROUTE
 router.get('/', async (req, res) => {
     try {
-        const foundUser = await User.findOne(req.session.userId);
+        const foundUser = await User.findOne({_id: req.session.userId});
         console.log(foundUser, 'this is the found user')
         res.render('users/index.ejs', {
             user: foundUser
@@ -79,6 +115,15 @@ router.get('/', async (req, res) => {
 });
 
 // DELETE ROUTE
+router.delete('/:id', async (req, res) => {
+    try {
+        const foundUser = await User.findByIdAndRemove(req.params.id);
+        res.redirect('/users');
+    } catch(err) {
+        res.send(err);
+    }
+    
+})
 
 
 
