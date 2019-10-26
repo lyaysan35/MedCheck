@@ -9,6 +9,12 @@
 
 </head>
 <body>
-    
+    <h1>Edit User</h1>
+    <form action="/users/<%=user._id%>?_method=PUT" method="POST">
+        Username: <input type="text" name="username" value="<%=user.username%>"><br>
+        <!-- Password: <input type="text" name="password"><br> -->
+        Email: <input type="text" name="email" value="<%=user.email%>"><br>
+        <input type="Submit" name="Create User">
+    </form>
 </body>
 </html>

@@ -32,8 +32,38 @@ router.post('/registration', async (req, res) => {
     }
 })
 // EDIT ROUTE
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const foundUser = await User.findOne(req.session.userId);
+        res.render('users/edit.ejs', {
+            user: foundUser
+        })
+    } catch(err) {
+        res.send(err);
+    }
+})
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        req.session.username = updatedUser.username;
+        res.redirect('/users')
+    } catch (err) {
+        res.send(err);
+    }
+    
+})
 
 // SHOW ROUTE
+router.get('/:id', async (req, res) => {
+    try {
+        const foundUser = await User.findOne(req.session.userId);
+        res.render('users/show.ejs', {
+            user: foundUser
+        })
+    } catch(err) {
+        res.send(err);
+    }
+})
 
 // INDEX ROUTE
 router.get('/', async (req, res) => {
@@ -41,10 +71,8 @@ router.get('/', async (req, res) => {
         const foundUser = await User.findOne(req.session.userId);
         console.log(foundUser, 'this is the found user')
         res.render('users/index.ejs', {
-            user: foundUser,
-            
+            user: foundUser
         })
-        console.log(foundUser, 'This is the user!!!')
     } catch(err) {
         res.send(err);
     }
