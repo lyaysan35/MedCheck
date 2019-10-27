@@ -9,6 +9,14 @@
 
 </head>
 <body>
+    <h1>User Page</h1>
+
+   <h2><a href="/users/<%=user._id%>"><%=user.username%></a></h2>
+   <p><%=user.email%></p>
+   <p><%=user.patients%></p>
+   <a href="/users/<%=user._id%>/edit">Edit User</a><br>
+    
+   <a href="/users/logout">Logout</a>
     
 </body>
 </html>
