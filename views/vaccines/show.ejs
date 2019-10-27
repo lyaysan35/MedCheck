@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit</title>
+    <title><%= vaccine.name%></title>
     <link rel="stylesheet" href="/css/styles.css">
 
 </head>
 <body>
-    
+    <h1><%= vaccine.name %></h1>
+    <h3>Age At Which Vaccine is Given: <%= vaccine.months %></h3>
+    <h3>Number of Doses Required: <%= vaccine.rounds %></h3>
+    <a href="/vaccines">Back to List</a>
 </body>
 </html>
