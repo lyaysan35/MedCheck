@@ -19,7 +19,9 @@
     </header>
     <main>
       <form action="/vaccines/<%=vaccine._id%>?_method=PUT" method="post">
-        <input type="text" name="name" value="<%=timeframe.name%>"/><br/>
+        <input type="text" name="name" placeholder=vaccine name /><br/>
+        <input type="text" name="months" placeholder=month><br/>
+        <input type="text" name="rounds" placeholder=rounds><br/>
         <input type="submit" value="Update vaccines"/>
       </form>
     </main>

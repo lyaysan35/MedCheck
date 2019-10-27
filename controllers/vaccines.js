@@ -50,24 +50,34 @@ router.post('/', async (req, res)=> {
 
 // EDIT ROUTE
 
-router.get('/edit/:id', async (req, res)=>{
- console.log('edit')
-  try {
-
-    const Vaccine = await Vaccine.findById(req.params.id);
-
-    res.render('vaccines/edit.ejs', {
-            
-            vaccine: Vaccine,
-          
-          });
-
-  } catch(err){
-    res.send(err);
-  }
-   });
+router.get('/edit/:id', async (req, res)=> {
+ 	console.log('edit');
+    Vaccine.findById(req.params.id, (err, vaccine) => {
+    	if(err) {
+    		console.log('Error Getting Vaccine from DB >>', err);
+			res.send(err);
+    	} else {
+    		console.log('Got Vaccine from DB >>', vaccine);
+    		res.render('vaccines/edit.ejs', {
+            	vaccine: vaccine,
+          	});
+  		}
+    });
+});
 
 
+
+router.put('/:id', (req, res) => {
+  Vaccine.findByIdAndUpdate(req.params.id, req.body, {new: true},(err, updatedVaccine) => {
+    if(err){
+      res.send(err);
+    } else{
+      res.render('vaccines/show.ejs', {
+      	vaccine: updatedVaccine
+      });
+    }
+  });
+});
 
 
 // SHOW ROUTE
@@ -83,23 +93,37 @@ router.get('/show/:id', async (req, res) => {
 		console.log('Error Getting Vaccine Details', err);
 		res.send(err);
 	}
-})
+});
 // INDEX ROUTE
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
 	console.log('Displaying List of Vaccines');
-	try {
-		const Vaccines = await Vaccine.find({});
-		res.render('vaccines/index.ejs', {
-			vaccines: Vaccines
-		});
-		console.log('Details for All Vaccines >>', Vaccines);
-	} catch(err) {
-		console.log('Error fetching all vaccines from db');
-		res.send(err);
-	}
-})
+	Vaccine.find({}, (err, allVaccines) => {
+		if(err) {
+			console.log('Error fetching all vaccines from db');
+			res.send(err);
+		} else {
+			res.render('vaccines/index.ejs', {
+				vaccines: allVaccines
+			});
+			console.log('Details for All Vaccines >>', allVaccines);
+		}
+	});
+});
 
 // DELETE ROUTE
+
+
+router.delete('/:id', (req, res) => {
+	Vaccine.findByIdAndRemove(req.params.id, (err, foundVaccine) => {
+		if(err){
+			console.log(err);
+	   } else {
+	   	console.log('Deleted!');
+	   	res.redirect('/vaccines');
+	   }
+	});
+});
+
 
 
 

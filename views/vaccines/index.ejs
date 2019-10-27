@@ -11,7 +11,8 @@
 <body>
 	<ul>
     <%for(let vaccine of vaccines) {%>
-    	<li><%=vaccine.name%> | <a href="vaccines/show/<%=vaccine._id%>">Details</a> | <a href="edit/<%=vaccine._id%>">Edit</a> | <a href="delete/<%=vaccine._id%>">Delete</a></li>
+    	<li><%=vaccine.name%> | <a href="vaccines/show/<%=vaccine._id%>">Details</a> | <a href="vaccines/edit/<%=vaccine._id%>">Edit</a> | <form action='/vaccines/<%=vaccine._id%>?_method=DELETE' method="POST">
+        	<button type='Submit'>Delete</button></li>
     <%}%>
 	</ul>
 </body>
