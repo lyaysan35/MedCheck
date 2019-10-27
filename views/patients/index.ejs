@@ -6,9 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
     <link rel="stylesheet" href="/css/styles.css">
-
 </head>
+<nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/patients/new">Create a new Patient</a>
+          </li>
+          <li>
+            <a href="/auth/logout">Logout</a>
+          </li>
+        </ul>
+    </nav>
 <body>
-    
+    <h2>List of Patients</h2>
+    <ul>
+        <% for(let i = 0; i < patients.length; i++){ %>
+            <li>
+                <a href="/patients/<%=patients[i]._id%>"><%=patients[i].name%></a>
+            </li>
+        <% } %>
+    </ul>
 </body>
 </html>

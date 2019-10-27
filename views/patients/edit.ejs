@@ -9,6 +9,11 @@
 
 </head>
 <body>
-    
+    <h2>Patient Attributes:</h2>
+      <form action="/patients/<%=patient._id%>?_method=PUT" method="post">
+        <input type="text" name="name" value="<%=patient.name%>"/><br/>
+        <input type="text" name="age" value="<%=patient.age%>"/><br/>
+        <input type="submit" value="Update Patient"/>
+      </form>
 </body>
 </html>
