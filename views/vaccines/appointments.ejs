@@ -11,7 +11,6 @@
 
 <body>
   <header>
-    <h1>Create a Vaccine</h1>
     <nav>
         <ul>
           <li>
@@ -21,11 +20,11 @@
       </nav>
     </header>
     <main>
-      <form action="/vaccines" method="POST">
-        <input type="text" name="name" placeholder=vaccine name /><br/>
-        <input type="text" name="months" placeholder=month><br/>
-        <input type="text" name="rounds" placeholder=rounds><br/>
-        <button type='Submit'>Create Vaccines</button>
+      <h1>Scheduling Your Child's Vaccines</h1>
+      <h3>Find Out Which Vaccines Your Child Needs & When To Schedule Your Appointments</h3>
+      <form action="/vaccines/remaining" method="POST">
+        <input type="text" name="age" placeholder="Your Child's Age in Months" /><br/>
+        <button type='Submit'>Tell Me Which Vaccines Are Left</button>
       </form>
     </main>
   </body>

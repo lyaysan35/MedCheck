@@ -111,16 +111,41 @@ router.get('/', (req, res) => {
 });
 
 // DELETE ROUTE
-
-
 router.delete('/:id', (req, res) => {
+	console.log('DELETING ', req.params.id);
 	Vaccine.findByIdAndRemove(req.params.id, (err, foundVaccine) => {
 		if(err){
 			console.log(err);
 	   } else {
-	   	console.log('Deleted!');
-	   	res.redirect('/vaccines');
+	   		console.log('Deleted!', foundVaccine);
+	   		res.redirect('/vaccines');
 	   }
+	});
+});
+
+// REMAINING ROUTE
+router.get('/remaining', (req, res) => {
+	res.render('vaccines/appointments.ejs');
+});
+
+router.post('/remaining', (req, res) => {
+	Vaccine.find({}, (err, allVaccines) => {
+		if(err) {
+			console.log('Error >>', err);
+			res.send(err);
+		} else {
+			try {
+			const remainingVaccines = allVaccines
+				.filter(v => v.months >= req.body.age)
+				.sort((a, b) => a.months - b.months);
+			console.log('REMAINING >>', remainingVaccines);
+			res.render('vaccines/remaining.ejs', {
+				remaining: remainingVaccines
+			});
+			} catch(err) {
+				console.log('ERROR >>', err);
+			}
+		}
 	});
 });
 
