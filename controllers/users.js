@@ -118,9 +118,30 @@ router.get('/', async (req, res) => {
 // DELETE ROUTE
 router.delete('/:id', async (req, res) => {
     try {
-        const foundUser = await User.findByIdAndRemove(req.params.id);
-        // const deletePatients = await Patient.
-        res.redirect('/users');
+        // const foundUser = await User.findOne({_id: req.session.userId});
+
+        const deletedUser = await User.findByIdAndRemove(req.session.userId);
+        const patientIds = [];
+        for(let i = 0; i < deletedUser.patients.length; i++) {
+            patientIds.push(deletedUser.patients[i]._id);
+        }
+        console.log('PATIENT IDS', patientIds)
+        // const foundPatients = await find({
+        //     _id: {
+        //         $in: patientIds
+        //     }
+        // })
+        // foundPatients.remove();
+        Patient.deleteMany(
+            {
+                _id: {
+                    $in: patientIds
+                }
+            },
+        );
+        res.redirect('/');
+
+        
     } catch(err) {
         res.send(err);
     }
