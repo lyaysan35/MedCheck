@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit</title>
-    <link rel="stylesheet" href="/css/styles.css">
-
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Edit</title>
+   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    
+   <h2>Patient Attributes:</h2>
+     <form action="/patients/<%=patient._id%>?_method=PUT" method="post">
+       <input type="text" name="name" value="<%=patient.name%>"/><br/>
+       <input type="text" name="age" value="<%=patient.age%>"/><br/>
+       <input type="submit" value="Update Patient"/>
+     </form>
 </body>
 </html>

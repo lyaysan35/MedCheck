@@ -105,6 +105,12 @@ router.get('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
     try {
         const foundUser = await User.findOne({_id: req.session.userId});
+        // const foundPatients = await Patient.findById(foundUser.patients[0])
+        // .populate({
+        //     path: 'patients',
+        //     match: {_id: foundUser.patients[0]}
+        // })
+        // .exec();
         console.log(foundUser, 'this is the found user')
         res.render('users/index.ejs', {
             user: foundUser

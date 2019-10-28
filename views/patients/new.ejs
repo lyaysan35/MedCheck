@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>New</title>
-    <link rel="stylesheet" href="/css/styles.css">
-
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>New</title>
+   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    
-</body>
+   <header>
+     <h1>Create a Patient</h1>
+     <nav>
+       <ul>
+         <li>
+           <a href="/">Home</a>
+         </li>
+         <li>
+           <a href="/patients">Patients Index</a>
+         </li>
+       </ul>
+     </nav>
+   </header>
+   <main>
+     <form action="/patients" method="POST">
+       Name: <input type="text" name="name" /><br>
+       Age: <input type="text" name="age" /><br>
+       <button type='Submit'>Create Patient</button>
+     </form>
+   </main>
+ </body>
 </html>

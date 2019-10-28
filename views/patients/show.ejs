@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Show</title>
-    <link rel="stylesheet" href="/css/styles.css">
-
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Show</title>
+   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    
+       <section>
+               <h2>Patient Info:</h2>
+               <ul>
+                 <li>Name: <%=patient.name%></li>
+                 <li>Age: <%=patient.age%></li>
+               </ul>
+       </section>
+       <section>
+               <form action="/patients/<%=patient._id%>?_method=DELETE" method="POST">
+                 <button type='submit'>Delete</button>
+               </form>
+    </section>
+    <section>
+           <a href="/patients/<%=patient._id%>/edit">Edit</a>
+   </section>
 </body>
 </html>
