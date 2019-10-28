@@ -11,11 +11,12 @@
 <body>
     <h1>User Page</h1>
 
-   <h2><a href="/users/<%=user._id%>"><%=user.username%></a></h2>
-   <p><%=user.email%></p>
+   <h2><%=user.username%></h2>
+   <!-- <p><%=user.email%></p> -->
+   <h3>Patients</h3>
    <ul>
         <% for(let i = 0; i < user.patients.length; i++) { %>
-            <li> Name: <%=user.patients[i].name %> </li>
+            <li> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a> </li>
             <li> Age: <%=user.patients[i].age %> </li>
             <li> Completed Vaccines: <%=user.patients[i].completed %></li><br>
         <% } %>

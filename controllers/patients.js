@@ -79,7 +79,11 @@ router.get('/', async (req, res)=>{
 // DELETE ROUTE
 router.delete('/:id', async (req, res) => {
  try {
+
      const foundPatient = await Patient.findByIdAndRemove(req.params.id);
+     const findUser = User.findOne({'patients': req.params.id});
+     const [deletedPatientResponse, foundUser] = await Promise.all([foundPatient, findUser]);
+     await foundUser.save();
      res.redirect('/patients');
  } catch(err) {
      res.send(err);
