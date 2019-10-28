@@ -104,13 +104,8 @@ router.get('/:id', async (req, res) => {
 // INDEX ROUTE
 router.get('/', async (req, res) => {
     try {
-        const foundUser = await User.findOne({_id: req.session.userId});
-        // const foundPatients = await Patient.findById(foundUser.patients[0])
-        // .populate({
-        //     path: 'patients',
-        //     match: {_id: foundUser.patients[0]}
-        // })
-        // .exec();
+        const foundUser = await User.findOne({_id: req.session.userId}).populate('patients').exec();
+        
         console.log(foundUser, 'this is the found user')
         res.render('users/index.ejs', {
             user: foundUser
@@ -124,6 +119,7 @@ router.get('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const foundUser = await User.findByIdAndRemove(req.params.id);
+        // const deletePatients = await Patient.
         res.redirect('/users');
     } catch(err) {
         res.send(err);

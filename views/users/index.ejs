@@ -13,7 +13,14 @@
 
    <h2><a href="/users/<%=user._id%>"><%=user.username%></a></h2>
    <p><%=user.email%></p>
-   <p><%=user.patients%></p>
+   <ul>
+        <% for(let i = 0; i < user.patients.length; i++) { %>
+            <li> Name: <%=user.patients[i].name %> </li>
+            <li> Age: <%=user.patients[i].age %> </li>
+            <li> Completed Vaccines: <%=user.patients[i].completed %></li><br>
+        <% } %>
+        <!-- <p><%=user.patients%></p> -->
+    </ul>
    <a href="/patients/new">New Patient</a><br>
    <a href="/users/<%=user._id%>/edit">Edit User</a><br>
     
