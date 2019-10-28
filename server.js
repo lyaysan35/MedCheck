@@ -12,6 +12,7 @@ app.use(session({
     saveUninitialized: false
 }));
 
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -23,6 +24,7 @@ app.use('/patients', patientsController);
 
 const vaccinesController = require('./controllers/vaccines');
 app.use('/vaccines', vaccinesController);
+
 
 
 // HOME PAGE

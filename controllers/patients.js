@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
      const [foundUser, createdPatient] = await Promise.all([findUser, createPatient]);
      foundUser.patients.push(createdPatient);
      await foundUser.save();
-     res.redirect('./users')
+     res.redirect('/users')
    } catch (err) {
        res.send(err);
    }
