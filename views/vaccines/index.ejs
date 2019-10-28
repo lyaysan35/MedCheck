@@ -10,8 +10,8 @@
 </head>
 <body>
 	<ul>
-    <%for(let vaccine of vaccines) {%>
-    	<li><%=vaccine.name%> | <a href="vaccines/show/<%=vaccine._id%>">Details</a> | <a href="vaccines/edit/<%=vaccine._id%>">Edit</a> | <form action='/vaccines/<%=vaccine._id%>?_method=DELETE' method="POST">
+    <%for(let i = 0; i < vaccines.length; i++) {%>
+    	<li><%=vaccines[i].name%> | <a href="vaccines/show/<%=vaccines[i]._id%>">Details</a> | <a href="vaccines/edit/<%=vaccines[i]._id%>">Edit</a> | <form action='/vaccines/<%=vaccines[i]._id%>?_method=DELETE' method="POST">
         	<button type='Submit'>Delete</button></li>
     <%}%>
 	</ul>

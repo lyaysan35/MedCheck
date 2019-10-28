@@ -16,7 +16,7 @@
    <h3>Patients</h3>
    <ul>
         <% for(let i = 0; i < user.patients.length; i++) { %>
-            <li> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name %></a> </li>
+            <li> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a> </li>
             <li> Age: <%=user.patients[i].age %> </li>
             <li> Completed Vaccines: <%=user.patients[i].completed %></li><br>
         <% } %>

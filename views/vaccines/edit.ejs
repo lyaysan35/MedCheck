@@ -19,10 +19,10 @@
     </header>
     <main>
       <form action="/vaccines/<%=vaccine._id%>?_method=PUT" method="post">
-        <input type="text" name="name" placeholder=vaccine name /><br/>
-        <input type="text" name="months" placeholder=month><br/>
-        <input type="text" name="rounds" placeholder=rounds><br/>
-        <input type="submit" value="Update vaccines"/>
+        <input type="text" name="name" value="<%=vaccine.name%>"><br/>
+        <input type="text" name="month" value="<%=vaccine.month%>"><br/>
+        <input type="text" name="round" value="<%=vaccine.round%>"><br/>
+        <input type="submit" value="Update vaccine"/>
       </form>
     </main>
   </body>

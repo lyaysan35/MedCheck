@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-
 const vaccineSchema = new mongoose.Schema({
-    months: {type: Number, required: true},
     name: {type: String, required: true},
-    rounds: {type: Number, required: true}
+    month: {type: Number, required: true},
+    round: Number
 });
 
 const Vaccine = mongoose.model('Vaccine', vaccineSchema);
