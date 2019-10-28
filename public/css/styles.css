@@ -1,0 +1,39 @@
+
+
+.nav {
+    grid-area: N;
+    background-color: red;
+}
+
+.login {
+    grid-area: L;
+    background-color: blue;
+}
+
+.body {
+    grid-area: B;
+    background-color: green
+}
+
+.containerhome {
+    display: grid;
+    min-height: 90vh;
+    grid-gap: 20px;
+    grid-template-columns: (3fr 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "N N N N"
+                         "B B B L"
+                         "B B B L"
+
+            
+}
+
+.container {
+    display: grid;
+    grid-template-columns: (3fr 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: "N N N N"
+                         "B B B B"
+                         "B B B B"
+
+}
