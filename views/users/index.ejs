@@ -19,8 +19,12 @@
             <li> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a> </li>
             <li> Age: <%=user.patients[i].age %> </li>
             <li> Completed Vaccines: <%=user.patients[i].completed %></li><br>
+            <li>Vaccine List: <ul>
+                    <%for(let i = 0; i < vaccines.length; i++) { %>
+                        <li><%=vaccines[i].name%></li>
+                   <% } %>
+                </ul></li>
         <% } %>
-        <!-- <p><%=user.patients%></p> -->
     </ul>
    <a href="/patients/new">New Patient</a><br>
    <a href="/users/<%=user._id%>/edit">Edit User</a><br>
