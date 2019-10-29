@@ -48,6 +48,7 @@ router.get('/:id/edit', async (req, res) => {
    }
 })
 
+// ADD VACCINE
 router.post('/:id/add/:vaccineId', async (req, res) => {
 	try {
     const foundVaccine = await Vaccine.findOne({_id: req.params.vaccineId});
@@ -61,6 +62,21 @@ router.post('/:id/add/:vaccineId', async (req, res) => {
 	} catch(err) {
     res.send(err);
   }
+})
+
+//REMOVE VACCINE
+router.post('/:id/remove/:vaccineId', async (req, res) => {
+  try {
+    const foundVaccine = await Vaccine.findOne({_id: req.params.vaccineId});
+    const foundPatient = await Patient.findById(req.params.id);
+    await foundPatient.vaccines.unshift(foundVaccine);
+    await foundPatient.completed.remove(req.params.vaccineId);
+    await foundPatient.save();
+    res.redirect('/patients/'+req.params.id);
+  } catch(err) {
+    res.send(err);
+  }
+  
 })
 
 // PUT ROUTE
