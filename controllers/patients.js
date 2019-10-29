@@ -23,6 +23,12 @@ router.post('/', async (req, res) => {
      const createPatient = await Patient.create(req.body)
      const [foundUser, createdPatient] = await Promise.all([findUser, createPatient]);
      foundUser.patients.push(createdPatient);
+     const vaccines = await Vaccine.find({});
+     for(let i = 0; i < vaccines.length; i++) {
+      createdPatient.vaccines.push(vaccines[i]._id);
+     };
+     createdPatient.save();
+     console.log(createdPatient, 'THIS IS THE CREATED PATIENT')
      await foundUser.save();
      res.redirect('/users')
    } catch (err) {
@@ -47,9 +53,11 @@ router.post('/:id/add/:vaccineId', async (req, res) => {
     const foundVaccine = await Vaccine.findOne({_id: req.params.vaccineId});
     const foundPatient = await Patient.findById(req.params.id);
     await foundPatient.completed.push(foundVaccine);
+    await foundPatient.vaccines.remove(req.params.vaccineId);
     await foundPatient.save();
     console.log(foundVaccine, 'THIS IS THE FOUND VACCINE')
     console.log(foundPatient, ' FOUND PATIENT')
+    res.redirect('/patients/'+req.params.id)
 	} catch(err) {
     res.send(err);
   }
@@ -68,11 +76,15 @@ router.put('/:id', async (req, res) => {
 // SHOW ROUTE
 router.get('/:id', async (req, res) => {
  try {
-   const foundPatient = await Patient.findById({_id: req.params.id});
-   const allVaccines = await Vaccine.find();
+   const foundPatient = await Patient.findById({_id: req.params.id})
+   .populate('vaccines')
+   .populate('completed')
+   .exec();
+   
    res.render('patients/show.ejs', {
       patient: foundPatient,
-      vaccines: allVaccines
+      vaccines: foundPatient.vaccines,
+      completedVaccines: foundPatient.completed
    })
  } catch (err) {
    res.send(err);

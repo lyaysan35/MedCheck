@@ -17,12 +17,19 @@
        </section>
 
        <section>
+         <h3>Vaccines to Complete</h3>
         <ul>
           <% for(let i = 0; i < vaccines.length; i++) { %>
             <li><%=vaccines[i].name%></li>
             <form action="/patients/<%=patient._id%>/add/<%=vaccines[i]._id%>" method="POST">
               <button type="submit">Add</button>
             </form>
+         <% } %>
+        </ul>
+        <h3>Vaccines Completed</h3>
+        <ul>
+          <% for(let i = 0; i < completedVaccines.length; i++) { %>
+            <li><%=completedVaccines[i].name%></li>
          <% } %>
         </ul>
        </section>
