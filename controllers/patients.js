@@ -42,6 +42,19 @@ router.get('/:id/edit', async (req, res) => {
    }
 })
 
+router.post('/:id/add/:vaccineId', async (req, res) => {
+	try {
+    const foundVaccine = await Vaccine.findOne({_id: req.params.vaccineId});
+    const foundPatient = await Patient.findById(req.params.id);
+    await foundPatient.completed.push(foundVaccine);
+    await foundPatient.save();
+    console.log(foundVaccine, 'THIS IS THE FOUND VACCINE')
+    console.log(foundPatient, ' FOUND PATIENT')
+	} catch(err) {
+    res.send(err);
+  }
+})
+
 // PUT ROUTE
 router.put('/:id', async (req, res) => {
  try {
@@ -56,8 +69,10 @@ router.put('/:id', async (req, res) => {
 router.get('/:id', async (req, res) => {
  try {
    const foundPatient = await Patient.findById({_id: req.params.id});
+   const allVaccines = await Vaccine.find();
    res.render('patients/show.ejs', {
-      patient: foundPatient
+      patient: foundPatient,
+      vaccines: allVaccines
    })
  } catch (err) {
    res.send(err);

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Remaining Vaccines</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+	<ul>
+    <%for(let i = 0; i < vaccines.length; i++) {%>
+    	<li><%=vaccines[i].name%> needs to be taken when your child is <%=vaccines[i].month%> months old.  | <a href="show/<%=vaccines[i]._id%>">Details</a></li>
+    <%}%>
+	</ul>
+</body>
+</html>
