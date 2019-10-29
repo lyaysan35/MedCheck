@@ -1,39 +1,74 @@
-
-
-.nav {
-    grid-area: N;
-    background-color: red;
+body, html {
+    height: 100vh;
 }
 
-.login {
-    grid-area: L;
-    background-color: blue;
+body {
+    margin: 0;
 }
 
-.body {
-    grid-area: B;
-    background-color: green
-}
 
 .containerhome {
     display: grid;
-    min-height: 90vh;
     grid-gap: 20px;
-    grid-template-columns: (3fr 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: "N N N N"
-                         "B B B L"
-                         "B B B L"
-
-            
+    grid-template-columns: 70% auto;
+    grid-template-rows: 20% auto;
+    grid-template-areas:
+        "H H"
+        "M A"
+                                   
 }
+
+
 
 .container {
     display: grid;
-    grid-template-columns: (3fr 1fr);
-    grid-template-rows: auto;
-    grid-template-areas: "N N N N"
-                         "B B B B"
-                         "B B B B"
+    grid-gap: 20px;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "H H"
+                         "M M"
+                         "M M"
 
+}
+
+header {
+    grid-area: H;
+    background-color: red;
+}
+
+aside {
+    grid-area: A;
+    background-color: blue;
+}
+
+main {
+    grid-area: M;
+    background-color: green
+}
+
+@media only screen and (max-width: 768px) {
+    .containerhome {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(auto, 5);
+        grid-template-areas:
+            "H"
+            "M"
+            "A"
+                                       
+    }
+
+    .container {
+        margin: 0;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 80%;
+        grid-template-areas: "H H"
+                             "M M"
+                             "M M"
+    
+    }
+    
 }
