@@ -139,7 +139,7 @@ router.post('/remaining', (req, res) => {
 			try {
 			const remainingVaccines = allVaccines
 				.filter(v => v.month >= req.body.age)
-				.sort((a, b) => a.month - b.month);
+				// .sort((a, b) => a.month - b.month);
 			console.log('REMAINING >>', remainingVaccines);
 			res.render('vaccines/remaining.ejs', {
 				remaining: remainingVaccines,
