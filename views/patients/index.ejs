@@ -7,7 +7,7 @@
    <title>Index</title>
    <link rel="stylesheet" href="/css/styles.css">
 </head>
-<nav>
+<header>
        <ul>
          <li>
            <a href="/">Home</a>
@@ -19,8 +19,9 @@
            <a href="/auth/logout">Logout</a>
          </li>
        </ul>
-   </nav>
+</header>
 <body>
+  <main>
    <h2>List of Patients</h2>
    <ul>
        <% for(let i = 0; i < patients.length; i++){ %>
@@ -29,5 +30,6 @@
            </li>
        <% } %>
    </ul>
+  </main>
 </body>
 </html>
