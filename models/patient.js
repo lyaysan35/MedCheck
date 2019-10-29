@@ -4,9 +4,8 @@ const patientSchema = new mongoose.Schema({
     name: {type: String, required: true},
     age: {type: Number, required: true},
     completed: [{
-        type: mongoose.Schema.Types.Array,
-        name: String,
-        round: {type: Number, required: true},
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Vaccine'
     }],
     vaccines: [{
         type: mongoose.Schema.Types.ObjectId,
