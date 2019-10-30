@@ -9,10 +9,15 @@
 
 </head>
 <body class="containerhome">
-    <header>
+
+    <header class = "homeHeader">
         <h1>Home Page!</h1>
     </header>
-    <main>
+
+    <main class="homeMain">
+        <h1>This is the Body of the Home Page!</h1>
+
+    
         <% if(remaining) {%>
             <section>
                 <h1>Scheduling Your Child's Vaccines</h1>
@@ -32,21 +37,33 @@
                 </form>
             </section>
         <%}%>
+
+
+ 
     </main>
-    <aside>
+
+    <aside class="homeAside">
+        <div class="login">
         <h3>Log In</h3>
             <form action="/users/login" method="POST">
-                Username: <input type="text" name="username" placeholder="Username">
-                Password: <input type="text" name="password" placeholder="Password">
-                <button type="submit">Login</button>
-            </form><br>
+                <label>Username:</label> <input type="text" name="username">
+                 <label>Password:</label> <input type="text" name="password">
+                 <br>
+                 <button type="submit">Login</button>
+                 <a href="/users/registration">New to MedCheck?</a>
+                </form><br>
+
+        </div>
+        
+        <div class="register">
         <h3>Register New User</h3>
             <form action="/users/registration" method="POST">
-                Username: <input type="text" name="username"><br>
-                Email: <input type="text" name="email"><br>
-                Password: <input type="text" name="password"><br>
+                <label>Username:</label> <input type="text" name="username"><br>
+                <label>Email:</label> <input type="text" name="email"><br>
+                <label>Password:</label><input type="text" name="password"><br>
             <input type="Submit" name="Create User">
         </form>
+        </div> 
     </aside>
 </body>
 </html>
