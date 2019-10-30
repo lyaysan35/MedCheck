@@ -8,30 +8,34 @@
    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
-<body class="wrapper">
+<body class="wrapperPS">
     <header>
         <h1>MedCheck</h1>
-        <a href="/users">Home</a>
     </header>
-  <main>
-       <section>
+       <section class="patient">
                <h2>Patient Info:</h2>
                <ul>
                  <li>Name: <%=patient.name%></li>
                  <li>Age in months: <%=patient.age%></li>
                </ul>
+               <form action="/patients/<%=patient._id%>?_method=DELETE" method="POST">
+                <button type='submit'>Delete</button>
+              </form>
+                <a href="/patients/<%=patient._id%>/edit">Edit</a>
+                <a href="/users">Home</a>
        </section>
-
-       <section>
-         <h3>Vaccines to Complete</h3>
+       <section class="incompVacc">
+         <h3>Please Click On Each Vaccine <%=patient.name%> Has Been Given:</h3>
         <ul>
           <% for(let i = 0; i < vaccines.length; i++) { %>
             <li><%=vaccines[i].name%> -- complete by month: <%=vaccines[i].month%></li>
             <form action="/patients/<%=patient._id%>/add/<%=vaccines[i]._id%>" method="POST">
-              <button type="submit">Add</button>
+              <button type="submit">Completed</button>
             </form>
          <% } %>
         </ul>
+      </section>
+      <section class="compVacc">
         <h3>Vaccines Completed</h3>
         <ul>
           <% for(let i = 0; i < completedVaccines.length; i++) { %>
@@ -42,18 +46,5 @@
          <% } %>
         </ul>
        </section>
-
-       <section>
-            
-
-            <form action="/patients/<%=patient._id%>?_method=DELETE" method="POST">
-                <button type='submit'>Delete</button>
-            </form>
-    </section>
-    <section>
-           <a href="/patients/<%=patient._id%>/edit">Edit</a>
-   </section>
-   <br>
-  </main>
 </body>
 </html>
