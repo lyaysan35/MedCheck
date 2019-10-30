@@ -32,6 +32,17 @@ body {
 
 }
 
+.wrapperPS {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(1fr);
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "H H H"
+                         "P C I"
+}
+
+
+/* HEADER AND LOGIN */
 
 header {
     grid-area: H;
@@ -52,17 +63,52 @@ aside {
     background-color: khaki;
     border-radius: 20px;
     text-align: center;
+    /* background-image: url('babies.jpg') */
 }
 
 
 .wrapperPS {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(1fr);
+    grid-template-columns: 30% 40% 30%;
     grid-template-rows: 20% 80%;
     grid-template-areas: "H H H"
                          "P C I"
 }
+
+
+/* HOME PAGE */
+
+.babyphoto {
+    max-width: 300px;
+}
+
+
+/* USER HOME PAGE */
+
+.children {
+    grid-area: C;
+    background-color: lightblue;
+
+}
+
+.info {
+    grid-area: I;
+    background-color: lightgreen;
+}
+
+.userphoto {
+    max-width:50%;
+    height:auto;
+}
+
+.userthumb {
+    max-width:25%;
+    height:auto;
+
+}
+
+/* PATIENT SHOW PAGE */
 
 .patient {
     grid-area: P;
@@ -89,7 +135,7 @@ aside {
 } 
 
 
-
+/* HOME PAGE */
 
 .homeHeader {
     text-align: center;
