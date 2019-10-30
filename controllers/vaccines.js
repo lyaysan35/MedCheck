@@ -113,7 +113,6 @@ router.get('/', (req, res) => {
 
 // DELETE ROUTE
 
-
 router.delete('/:id', (req, res) => {
 	Vaccine.findByIdAndRemove(req.params.id, (err, foundVaccine) => {
 		if(err){
@@ -126,31 +125,40 @@ router.delete('/:id', (req, res) => {
 });
 
 // REMAINING ROUTE
-router.get('/remaining', (req, res) => {
-	res.render('vaccines/appointments.ejs');
-});
 
 router.post('/remaining', (req, res) => {
+	console.log('REQUEST AGE >>', req.body.age);
 	Vaccine.find({}, (err, allVaccines) => {
 		if(err) {
 			console.log('Error >>', err);
 			res.send(err);
 		} else {
 			try {
-			const remainingVaccines = allVaccines
-				.filter(v => v.month >= req.body.age)
-				// .sort((a, b) => a.month - b.month);
-			console.log('REMAINING >>', remainingVaccines);
-			res.render('vaccines/remaining.ejs', {
-				remaining: remainingVaccines,
-				vaccines: allVaccines
-			});
+				console.log('ALL VACCINES >>', allVaccines);
+				const remainingVaccines = allVaccines
+					.filter(v => v.months >= req.body.age)
+					.sort((a, b) => a.months - b.months);
+				console.log('REMAINING >>', remainingVaccines);
+				res.render('vaccines/remaining.ejs', {
+					remaining: remainingVaccines,
+					vaccines: allVaccines
+				});
 			} catch(err) {
 				console.log('ERROR >>', err);
 			}
 		}
 	});
 });
+
+/*const remainingVaccines = [];
+for(let vaccine of allVaccines) {
+	remainingVaccines.push(filter(vaccine));
+}
+function filter(v) {
+	if(v.month >= req.body.age) {
+		return v;
+	}
+}*/
 
 
 
