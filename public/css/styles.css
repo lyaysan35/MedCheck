@@ -1,10 +1,10 @@
 body, html {
-    height: 90vh;
+    height: 100vh;
 
 }
 
 body {
-    margin: auto;
+    margin: 0;
 }
 
 
@@ -33,7 +33,6 @@ body {
 }
 
 
-
 header {
     grid-area: H;
     background: lightblue;
@@ -47,18 +46,19 @@ aside {
     background-color: rgb(66, 66, 230);
 }
 
-main {
+.homeMain {
     grid-area: M;
     /* background-color: green; */
     background-color: khaki;
     border-radius: 20px;
+    text-align: center;
 }
 
 
-/* .wrapperPS {
+.wrapperPS {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 30% 40% 40%;
+    grid-template-columns: repeat(1fr);
     grid-template-rows: 20% 80%;
     grid-template-areas: "H H H"
                          "P C I"
@@ -68,29 +68,30 @@ main {
     grid-area: P;
     background-color: lightyellow;
     border-radius: 20px;
+    text-align: center;
 }
 
 .compVacc {
     grid-area: C;
     background-color: lightcoral;
     border-radius: 20px;
+    text-align: center;
 
 }
 
 .incompVacc {
     grid-area: I;
+    justify-items: center;
+    text-align: center;
     background-color: lightgreen;
     border-radius: 20px;
-} */
+    overflow: auto;
+} 
 
 
 
 
 .homeHeader {
-    text-align: center;
-}
-
-.homeMain {
     text-align: center;
 }
 
