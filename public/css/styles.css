@@ -1,9 +1,10 @@
 body, html {
-    height: 100%;
+    height: 90vh;
+
 }
 
 body {
-    margin: 0;
+    margin: auto;
 }
 
 
@@ -24,12 +25,14 @@ body {
     margin: 0;
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: auto;
+    grid-template-columns: 30% 40% 40%;
     grid-template-rows: 20% 80%;
-    grid-template-areas: "H H"
-                         "M M"
+    grid-template-areas: "H H H"
+                         "M M M"
 
 }
+
+
 
 header {
     grid-area: H;
@@ -50,6 +53,38 @@ main {
     background-color: khaki;
     border-radius: 20px;
 }
+
+
+/* .wrapperPS {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 30% 40% 40%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "H H H"
+                         "P C I"
+}
+
+.patient {
+    grid-area: P;
+    background-color: lightyellow;
+    border-radius: 20px;
+}
+
+.compVacc {
+    grid-area: C;
+    background-color: lightcoral;
+    border-radius: 20px;
+
+}
+
+.incompVacc {
+    grid-area: I;
+    background-color: lightgreen;
+    border-radius: 20px;
+} */
+
+
+
 
 .homeHeader {
     text-align: center;
@@ -85,7 +120,7 @@ label {
 }
 
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     .containerhome {
         margin: 0;
         display: grid;
@@ -110,4 +145,4 @@ label {
     
     }
     
-}
+} */
