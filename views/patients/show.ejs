@@ -18,16 +18,26 @@
                <h2>Patient Info:</h2>
                <ul>
                  <li>Name: <%=patient.name%></li>
-                 <li>Age: <%=patient.age%></li>
+                 <li>Age in months: <%=patient.age%></li>
                </ul>
        </section>
 
        <section>
+         <h3>Vaccines to Complete</h3>
         <ul>
           <% for(let i = 0; i < vaccines.length; i++) { %>
-            <li><%=vaccines[i].name%></li>
+            <li><%=vaccines[i].name%> -- complete by month: <%=vaccines[i].month%></li>
             <form action="/patients/<%=patient._id%>/add/<%=vaccines[i]._id%>" method="POST">
               <button type="submit">Add</button>
+            </form>
+         <% } %>
+        </ul>
+        <h3>Vaccines Completed</h3>
+        <ul>
+          <% for(let i = 0; i < completedVaccines.length; i++) { %>
+            <li><%=completedVaccines[i].name%></li>
+            <form action="/patients/<%=patient._id%>/remove/<%=vaccines[i]._id%>" method="POST">
+              <button type="submit">Remove</button>
             </form>
          <% } %>
         </ul>
