@@ -40,11 +40,24 @@
         <ul>
           <% for(let i = 0; i < completedVaccines.length; i++) { %>
             <li><%=completedVaccines[i].name%></li>
-            <form action="/patients/<%=patient._id%>/remove/<%=vaccines[i]._id%>" method="POST">
+            <form action="/patients/<%=patient._id%>/remove/<%=completedVaccines[i]._id%>" method="POST">
               <button type="submit">Remove</button>
             </form>
          <% } %>
         </ul>
        </section>
+
+       <section>
+            
+            <a href="/users">Back</a>
+            <form action="/patients/<%=patient._id%>?_method=DELETE" method="POST">
+                <button type='submit'>Delete Patient</button>
+            </form>
+    </section>
+    <section>
+           <a href="/patients/<%=patient._id%>/edit">Edit</a>
+   </section>
+   <br>
+  </main>
 </body>
 </html>
