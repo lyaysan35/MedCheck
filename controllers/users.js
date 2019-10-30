@@ -106,7 +106,6 @@ router.get('/', async (req, res) => {
     try {
         const foundUser = await User.findOne({_id: req.session.userId}).populate('patients').exec();
         const allVaccines = await Vaccine.find();
-        console.log(foundUser, 'this is the found user')
         res.render('users/index.ejs', {
             user: foundUser,
             vaccines: allVaccines

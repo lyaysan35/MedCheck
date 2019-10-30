@@ -1,5 +1,6 @@
 body, html {
-    height: 100%;
+    height: 100vh;
+
 }
 
 body {
@@ -24,12 +25,13 @@ body {
     margin: 0;
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: auto;
+    grid-template-columns: 30% 40% 40%;
     grid-template-rows: 20% 80%;
-    grid-template-areas: "H H"
-                         "M M"
+    grid-template-areas: "H H H"
+                         "M M M"
 
 }
+
 
 header {
     grid-area: H;
@@ -44,18 +46,52 @@ aside {
     background-color: rgb(66, 66, 230);
 }
 
-main {
+.homeMain {
     grid-area: M;
     /* background-color: green; */
     background-color: khaki;
     border-radius: 20px;
-}
-
-.homeHeader {
     text-align: center;
 }
 
-.homeMain {
+
+.wrapperPS {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(1fr);
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "H H H"
+                         "P C I"
+}
+
+.patient {
+    grid-area: P;
+    background-color: lightyellow;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.compVacc {
+    grid-area: C;
+    background-color: lightcoral;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+.incompVacc {
+    grid-area: I;
+    justify-items: center;
+    text-align: center;
+    background-color: lightgreen;
+    border-radius: 20px;
+    overflow: auto;
+} 
+
+
+
+
+.homeHeader {
     text-align: center;
 }
 
@@ -85,7 +121,7 @@ label {
 }
 
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
     .containerhome {
         margin: 0;
         display: grid;
@@ -110,4 +146,4 @@ label {
     
     }
     
-}
+} */
