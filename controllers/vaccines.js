@@ -136,11 +136,27 @@ router.post('/remaining', (req, res) => {
 			res.send(err);
 		} else {
 			try {
-				console.log('ALL VACCINES >>', allVaccines);
+				// console.log('ALL VACCINES >>', allVaccines);
 				const remainingVaccines = allVaccines
 					.filter(v => v.month >= req.body.age)
 					.sort((a, b) => a.month - b.month);
-				console.log('REMAINING >>', remainingVaccines);
+				let twoMonth = [];
+				let fourMonth = [];
+				let sixMonth = [];
+				let twelveMonth = [];
+				
+				for(let i = 0; i < remainingVaccines.length; i++) {
+					if(remainingVaccines[i].month === 2) {
+						
+						twoMonth.push(remainingVaccines[i]);
+					}
+				}
+				
+				console.log(twoMonth, 'TWO')
+				console.log(fourMonth, 'FOUR')
+				console.log(sixMonth, 'SIX')
+				console.log(twelveMonth, 'TWELVE')
+				// console.log('REMAINING >>', remainingVaccines);
 				res.render('index.ejs', {
 					remaining: remainingVaccines
 				});
