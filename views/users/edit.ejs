@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="/css/styles.css">
 
 </head>
-<body>
+<body class="wrapper">
+<header>
+        <h1>MedCheck</h1>
+    </header>
+<main>
     <h1>Edit User</h1>
     <form action="/users/<%=user._id%>?_method=PUT" method="POST">
         Username: <input type="text" name="username" value="<%=user.username%>"><br>
@@ -19,5 +23,6 @@
     <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
         <button type="submit">Delete User</button>
     </form>
+</main>
 </body>
 </html>

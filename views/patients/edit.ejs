@@ -7,12 +7,17 @@
    <title>Edit</title>
    <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
+<body class="wrapper">
+<header>
+    <h1>MedCheck</h1>
+</header>
+<main>
    <h2>Patient Attributes:</h2>
      <form action="/patients/<%=patient._id%>?_method=PUT" method="post">
        <input type="text" name="name" value="<%=patient.name%>"/><br/>
        <input type="text" name="age" value="<%=patient.age%>"/><br/>
        <input type="submit" value="Update Patient"/>
      </form>
-</body>
+  </main>   
+  </body>
 </html>
