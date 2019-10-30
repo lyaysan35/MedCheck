@@ -4,8 +4,10 @@ const Patient = require('../models/patient');
 const User = require('../models/user');
 const Vaccine = require('../models/vaccine');
 
-// NEW ROUTE
+// Allow Static Files
+router.use(express.static('public'));
 
+// NEW ROUTE
 router.get('/new', async (req, res)=>{
 	
   try {
@@ -136,12 +138,11 @@ router.post('/remaining', (req, res) => {
 			try {
 				console.log('ALL VACCINES >>', allVaccines);
 				const remainingVaccines = allVaccines
-					.filter(v => v.months >= req.body.age)
-					.sort((a, b) => a.months - b.months);
+					.filter(v => v.month >= req.body.age)
+					.sort((a, b) => a.month - b.month);
 				console.log('REMAINING >>', remainingVaccines);
-				res.render('vaccines/remaining.ejs', {
-					remaining: remainingVaccines,
-					vaccines: allVaccines
+				res.render('index.ejs', {
+					remaining: remainingVaccines
 				});
 			} catch(err) {
 				console.log('ERROR >>', err);

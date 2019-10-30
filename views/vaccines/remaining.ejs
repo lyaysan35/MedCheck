@@ -9,10 +9,12 @@
 
 </head>
 <body>
-	<ul>
-    <%for(let i = 0; i < remaining.length; i++) {%>
-    	<li><%=remaining[i].name%> needs to be taken when your child is <%=remaining[i].month%> months old.  | <a href="show/<%=remaining[i]._id%>">Details</a></li>
-    <%}%>
-	</ul>
+   <section> 
+    	<ul>
+        <%for(let i = 0; i < remaining.length; i++) {%>
+        	<li><%=remaining[i].name%> needs to be taken when your child is <%=remaining[i].month%> months old.  | <a href="show/<%=remaining[i]._id%>">Details</a></li>
+        <%}%>
+    	</ul>
+    </section>
 </body>
 </html>

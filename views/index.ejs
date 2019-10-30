@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 </head>
 <body class="containerhome">
@@ -13,12 +13,25 @@
         <h1>Home Page!</h1>
     </header>
     <main>
-        <h1>Scheduling Your Child's Vaccines</h1>
-        <h3>Find Out Which Vaccines Your Child Needs & When To Schedule Your Appointments</h3>
-        <form action="/vaccines/remaining" method="POST">
-            <input type="text" name="age" placeholder="Your Child's Age in Months" /><br/>
-            <button type='Submit'>Tell Me Which Vaccines Are Left</button>
-        </form>
+        <% if(remaining) {%>
+            <section>
+                <h1>Scheduling Your Child's Vaccines</h1>
+                <ul>
+                <%for(let i = 0; i < remaining.length; i++) {%>
+                    <li><%=remaining[i].name%> needs to be taken when your child is <%=remaining[i].month%> months old.  | <a href="show/<%=remaining[i]._id%>">Details</a></li>
+                <%}%>
+                </ul>
+            </section>
+        <%} else {%>
+            <section>
+                <h1>Scheduling Your Child's Vaccines</h1>
+                <h3>Find Out Which Vaccines Your Child Needs & When To Schedule Your Appointments</h3>
+                <form action="/vaccines/remaining" method="POST">
+                    <input type="text" name="age" placeholder="Your Child's Age in Months" /><br/>
+                    <button type='Submit'>Tell Me Which Vaccines Are Left</button>
+                </form>
+            </section>
+        <%}%>
     </main>
     <aside>
         <h3>Log In</h3>

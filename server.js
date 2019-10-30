@@ -31,7 +31,8 @@ app.use('/vaccines', vaccinesController);
 app.get('/', (req, res) => {
     res.render('index.ejs', {
         message: req.session.message,
-        logOut: req.session.logOutMsg
+        logOut: req.session.logOutMsg,
+        remaining: null
     })
 });
 
