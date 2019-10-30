@@ -11,35 +11,35 @@
 <body class="containerhome">
 
     <header class = "homeHeader">
-        <h1>Home Page!</h1>
+        <h1>MedCheck</h1>
     </header>
 
     <main class="homeMain">
-        <h1>This is the Body of the Home Page!</h1>
-
     
         <% if(remaining) {%>
             <section>
                 <h1>Scheduling Your Child's Vaccines</h1>
-                <ul>
+
                 <%for(let i = 0; i < remaining.length; i++) {%>
-                    <li><%=remaining[i].name%> needs to be taken when your child is <%=remaining[i].month%> months old.  | <a href="show/<%=remaining[i]._id%>">Details</a></li>
+                    <h5><a href="show/<%=remaining[i]._id%>"><%=remaining[i].name%></a> needs to be taken when your child is <%=remaining[i].month%> months old.</h5>
+
                 <%}%>
-                </ul>
+        
             </section>
         <%} else {%>
             <section>
                 <h1>Scheduling Your Child's Vaccines</h1>
                 <h3>Find Out Which Vaccines Your Child Needs & When To Schedule Your Appointments</h3>
                 <form action="/vaccines/remaining" method="POST">
-                    <input type="text" name="age" placeholder="Your Child's Age in Months" /><br/>
+                    <input type="text" name="age" placeholder="Your Child's Age in Months" /><br>
+                    <br>
                     <button type='Submit'>Tell Me Which Vaccines Are Left</button>
                 </form>
             </section>
         <%}%>
 
+    <img class="babyphoto" src="./css/babies.jpg">
 
- 
     </main>
 
     <aside class="homeAside">
@@ -50,7 +50,8 @@
                  <label>Password:</label> <input type="text" name="password">
                  <br>
                  <button type="submit">Login</button>
-                 <a href="/users/registration">New to MedCheck?</a>
+                 <br>
+                 <a href="/users">New to MedCheck?</a>
                 </form><br>
 
         </div>
