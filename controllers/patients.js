@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
       createdPatient.vaccines.push(vaccines[i]._id);
      };
      createdPatient.save();
-     console.log(createdPatient, 'THIS IS THE CREATED PATIENT')
+    //  console.log(createdPatient, 'THIS IS THE CREATED PATIENT')
      await foundUser.save();
      res.redirect('/users')
    } catch (err) {
@@ -56,8 +56,8 @@ router.post('/:id/add/:vaccineId', async (req, res) => {
     await foundPatient.completed.push(foundVaccine);
     await foundPatient.vaccines.remove(req.params.vaccineId);
     await foundPatient.save();
-    console.log(foundVaccine, 'THIS IS THE FOUND VACCINE')
-    console.log(foundPatient, ' FOUND PATIENT')
+    // console.log(foundVaccine, 'THIS IS THE FOUND VACCINE')
+    // console.log(foundPatient, ' FOUND PATIENT')
     res.redirect('/patients/'+req.params.id)
 	} catch(err) {
     res.send(err);
@@ -69,9 +69,11 @@ router.post('/:id/remove/:vaccineId', async (req, res) => {
   try {
     const foundVaccine = await Vaccine.findOne({_id: req.params.vaccineId});
     const foundPatient = await Patient.findById(req.params.id);
-    await foundPatient.vaccines.unshift(foundVaccine);
-    await foundPatient.completed.remove(req.params.vaccineId);
+    await foundPatient.completed.pop(req.params.vaccineId);
+    await foundPatient.vaccines.push(foundVaccine);
+    
     await foundPatient.save();
+    console.log(foundPatient, ' FOUND PATIENT')
     res.redirect('/patients/'+req.params.id);
   } catch(err) {
     res.send(err);
@@ -92,11 +94,12 @@ router.put('/:id', async (req, res) => {
 // SHOW ROUTE
 router.get('/:id', async (req, res) => {
  try {
+   
    const foundPatient = await Patient.findById({_id: req.params.id})
    .populate('vaccines')
    .populate('completed')
    .exec();
-   
+   const vaccineArr = foundPatient.vaccines.sort();
    res.render('patients/show.ejs', {
       patient: foundPatient,
       vaccines: foundPatient.vaccines,
@@ -127,7 +130,7 @@ router.delete('/:id', async (req, res) => {
      const findUser = User.findOne({'patients': req.params.id});
      const [deletedPatientResponse, foundUser] = await Promise.all([foundPatient, findUser]);
      await foundUser.save();
-     res.redirect('/patients');
+     res.redirect('/users');
  } catch(err) {
      res.send(err);
  }

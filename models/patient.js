@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const patientSchema = new mongoose.Schema({
     name: {type: String, required: true},
     age: {type: Number, required: true},
+    image: String,
     completed: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Vaccine'

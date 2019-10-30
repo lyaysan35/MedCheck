@@ -22,13 +22,7 @@
         <% for(let i = 0; i < user.patients.length; i++) { %>
             <li> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a> </li>
             <li> Age: <%=user.patients[i].age %> </li>
-            <li> Completed Vaccines: <%=user.patients[i].completed %></li><br>
-            <li>Vaccine List: <ul>
-                    <%for(let i = 0; i < vaccines.length; i++) { %>
-                        <li><%=vaccines[i].name%></li>
-                        
-                   <% } %>
-                </ul></li>
+            <img src="<%=user.patients[i].image%>" alt="">
         <% } %>
     </ul>
    <a href="/patients/new">New Patient</a><br>
