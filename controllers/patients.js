@@ -28,7 +28,6 @@ router.post('/', async (req, res) => {
       createdPatient.vaccines.push(vaccines[i]._id);
      };
      createdPatient.save();
-    //  console.log(createdPatient, 'THIS IS THE CREATED PATIENT')
      await foundUser.save();
      res.redirect('/users')
    } catch (err) {
@@ -56,8 +55,6 @@ router.post('/:id/add/:vaccineId', async (req, res) => {
     await foundPatient.completed.push(foundVaccine);
     await foundPatient.vaccines.remove(req.params.vaccineId);
     await foundPatient.save();
-    // console.log(foundVaccine, 'THIS IS THE FOUND VACCINE')
-    // console.log(foundPatient, ' FOUND PATIENT')
     res.redirect('/patients/'+req.params.id)
 	} catch(err) {
     res.send(err);
@@ -73,7 +70,6 @@ router.post('/:id/remove/:vaccineId', async (req, res) => {
     await foundPatient.vaccines.push(foundVaccine);
     
     await foundPatient.save();
-    console.log(foundPatient, ' FOUND PATIENT')
     res.redirect('/patients/'+req.params.id);
   } catch(err) {
     res.send(err);
