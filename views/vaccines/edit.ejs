@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="/css/styles.css">
 
 </head>
-<body>
+<body class="wrapper">
+<header>
+  <h1>MedCheck</h1>
+</header>
+<main>
       <h1>Edit <%=vaccine.name%>'s Info</h1>
       <nav>
         <ul>
@@ -16,8 +20,6 @@
             <a href="/">Home</a>
           </li>
       </nav>
-    </header>
-    <main>
       <form action="/vaccines/<%=vaccine._id%>?_method=PUT" method="post">
         <input type="text" name="name" value="<%=vaccine.name%>"><br/>
         <input type="text" name="month" value="<%=vaccine.month%>"><br/>

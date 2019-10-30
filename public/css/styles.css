@@ -1,5 +1,5 @@
 body, html {
-    height: 100vh;
+    height: 100%;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
 
 .containerhome {
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 10px;
     grid-template-columns: 70% auto;
     grid-template-rows: 20% auto;
     grid-template-areas:
@@ -20,38 +20,77 @@ body {
 
 
 
-.container {
+.wrapper {
+    margin: 0;
     display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 100%;
+    grid-gap: 10px;
+    grid-template-columns: auto;
     grid-template-rows: 20% 80%;
     grid-template-areas: "H H"
-                         "M M"
                          "M M"
 
 }
 
 header {
     grid-area: H;
-    background-color: red;
+    background: lightblue;
+    border: 2px solid gray;
+    text-align: center;
+    font-size: 36px;
 }
 
 aside {
     grid-area: A;
-    background-color: blue;
+    background-color: rgb(66, 66, 230);
 }
 
 main {
     grid-area: M;
-    background-color: green
+    /* background-color: green; */
+    background-color: khaki;
+    border-radius: 20px;
 }
+
+.homeHeader {
+    text-align: center;
+}
+
+.homeMain {
+    text-align: center;
+}
+
+.homeAside {
+    text-align: center;
+    font-size: 18px;
+}
+
+.login {
+    border: 3px solid silver;
+    margin: 20px 20px;
+
+}
+
+.register {
+    border: 3px solid silver;
+    margin: 20px 20px;
+    padding-bottom: 20px;
+}
+
+label { 
+    display: inline-block; 
+    width: 210px; 
+    text-align: center;
+    font-size: 18px; 
+    padding: 7px;
+}
+
 
 @media only screen and (max-width: 768px) {
     .containerhome {
         margin: 0;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: repeat(auto, 5);
+        grid-template-rows: 1fr 2fr 2fr;
         grid-template-areas:
             "H"
             "M"

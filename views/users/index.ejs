@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="/css/styles.css">
 
 </head>
-<body>
+<body class="wrapper">
+<header>
+    <h1>MedCheck</h1>
+</header>
+<main>
     <h1>User Page</h1>
 
    <h2><%=user.username%></h2>
@@ -31,6 +35,7 @@
    <a href="/users/<%=user._id%>/edit">Edit User</a><br>
     
    <a href="/users/logout">Logout</a>
-    
+
+</main>
 </body>
 </html>
