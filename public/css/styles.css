@@ -7,6 +7,13 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
 
 .containerhome {
     display: grid;
@@ -20,13 +27,11 @@ body {
 }
 
 
-
 .wrapper {
-    margin: 0;
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 30% 40% 40%;
-    grid-template-rows: 20% 80%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% auto;
     grid-template-areas: "H H H"
                          "M M M"
 
@@ -50,6 +55,8 @@ header {
     border: 2px solid gray;
     text-align: center;
     font-size: 36px;
+    padding: 0 30px;
+
 }
 
 aside {
@@ -77,18 +84,28 @@ aside {
 }
 
 
+
+h2 {
+    text-align: center;
+}
 /* HOME PAGE */
 
 .babyphoto {
-    max-width: 300px;
+    max-width: 200px;
 }
 
+#ageCheck {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
 
 /* USER HOME PAGE */
 
 .children {
     grid-area: C;
     background-color: lightblue;
+    overflow: auto;
 
 }
 
@@ -135,10 +152,45 @@ aside {
 } 
 
 
-/* HOME PAGE */
+/* EDIT PAGE */
 
-.homeHeader {
+#editUser {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+
+/* NAVBAR HEADER */
+
+.navbar {
     text-align: center;
+    display: grid;
+    grid-auto-flow: column;
+   
+}
+
+.logoPhoto {
+  display: grid;
+  justify-content: start;
+  align-content: top;
+}
+
+
+
+.siteName {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.links {
+    display: grid;
+    justify-content: end;
+    align-content: center;
+    grid-auto-flow: column;
+    grid-gap: 20px;
+    font-size: 18px;
 }
 
 .homeAside {

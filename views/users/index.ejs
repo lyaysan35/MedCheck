@@ -9,31 +9,37 @@
 
 </head>
 <body class="wrapperPS">
-<header>
-    <h1>MedCheck</h1>
-</header>
-
+        <header class = "navbar">
+                <div class="logoPhoto">
+                    <img class="babyphoto" src="./css/babies.jpg">
+                </div>
+                <div class="siteName">
+                    <h1>MedCheck</h1> 
+                </div>
+                <div class="links">
+                    <a href="/patients/new">Add A Patient</a>
+                    <a href="/">Home</a>
+                    <a href="/users/logout">Logout</a>
+                </div>
+            </header>
    <section class="patient">
-    <h2><%=user.username%></h2>
+    <h2>User Profile</h2>
+    <h3>Username:<%=user.username%></h3>
     <!-- <p><%=user.email%></p> -->
    </section>
 
    <section class="children">
-    <h3>Patients</h3>
-    <ul>
+    <h2>Patients</h2>
          <% for(let i = 0; i < user.patients.length; i++) { %>
-             <li> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a> </li>
-             <li> Age: <%=user.patients[i].age %> </li>
+             <h3> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a> </h3>
+             <h3> Age: <%=user.patients[i].age %> </h3>
              <img src="<%=user.patients[i].image%>" alt="" class="userthumb">
          <% } %>
-     </ul>
    </section>
 
    <section class="info">
-   <a href="/patients/new">New Patient</a><br>
-   <a href="/users/<%=user._id%>/edit">Edit User</a><br>
-    
-   <a href="/users/logout">Logout</a>
+    <h2>Important Resources</h2>
+
 </section>
 
 </body>
