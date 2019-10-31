@@ -28,16 +28,49 @@
     <main class="homeMain" id="ageCheck">
 
     
-        <% if(remaining) {%>
+        <% if(two || four || six || twelve) {%>
             <section>
                
                 <h1>These Are The Remaining Vaccines:</h1>
 
+
+                <!--Two month -->
+                <% if(two.length > 0) {%>
+                    <h3>Month Two Vaccines</h3>
+                    <%for(let i = 0; i < two.length; i++) {%>
+                        <h5><a href="show/<%=two[i]._id%>"><%=two[i].name%></a> <!-- needs to be taken when your child is <%=two[i].month%> months old.</h5> -->
+                    <%}%>
+                <%}%>
+
+                <!-- FOUR MONTHS -->
+                <% if(four.length > 0) {%>
+                    <h3>Month Four Vaccines</h3>
+                    <%for(let i = 0; i < four.length; i++) {%>
+                        <h5><a href="show/<%=four[i]._id%>"><%=four[i].name%></a> <!-- needs to be taken when your child is <%=four[i].month%> months old. --></h5>
+                    <%}%>
+
                 <%for(let i = 0; i < remaining.length; i++) {%>
                     <h5><%=remaining[i].month%> MONTHS - <a href="show/<%=remaining[i]._id%>"><%=remaining[i].name%></a></h5>
                     
+
                 <%}%>
-        
+
+                <!-- SIX MONTHS -->
+                <% if(six.length > 0) {%>
+                    <h3>Month Six Vaccines</h3>
+                    <%for(let i = 0; i < six.length; i++) {%>
+                        <h5><a href="show/<%=six[i]._id%>"><%=six[i].name%></a> <!-- needs to be taken when your child is <%=six[i].month%> months old. --></h5>
+                    <%}%>
+                <%}%>
+
+                <!-- TWELVE MONTHS -->
+                <% if(twelve.length > 0) {%>
+                    <h3>Month Twelve Vaccines</h3>
+                    <%for(let i = 0; i < twelve.length; i++) {%>
+                        <h5><a href="show/<%=twelve[i]._id%>"><%=twelve[i].name%></a> <!-- needs to be taken when your child is <%=twelve[i].month%> months old. --></h5>
+                    <%}%>
+                <%}%>
+
             </section>
         <%} else {%>
             <section>

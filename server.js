@@ -33,7 +33,11 @@ app.get('/', (req, res) => {
     res.render('index.ejs', {
         message: req.session.message,
         logOut: req.session.logOutMsg,
-        remaining: null
+        two: null,
+        four: null,
+        six: null,
+        twelve: null
+
     })
 });
 
