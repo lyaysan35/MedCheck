@@ -129,54 +129,37 @@ router.delete('/:id', (req, res) => {
 // REMAINING ROUTE
 
 router.post('/remaining', (req, res) => {
-	console.log('REQUEST AGE >>', req.body.age);
-	Vaccine.find({}, (err, allVaccines) => {
-		if(err) {
-			console.log('Error >>', err);
-			res.send(err);
-		} else {
-			try {
-				// console.log('ALL VACCINES >>', allVaccines);
-				const remainingVaccines = allVaccines
-					.filter(v => v.month >= req.body.age)
-					.sort((a, b) => a.month - b.month);
+    console.log('REQUEST AGE >>', req.body.age);
+    Vaccine.find({}, (err, allVaccines) => {
+		console.log(allVaccines, 'ALL VACCINES')
+        if(err) {
+            console.log('Error >>', err);
+            res.send(err);
+        } else {
+            try {
+                const remainingVaccines = allVaccines
+                    .filter(v => v.month >= req.body.age)
+                    .sort((a, b) => a.month - b.month);
 
-				const twoMonth = remainingVaccines.filter(v => v.month === 2);
-				const fourMonth = remainingVaccines.filter(v => v.month === 4);
-				const sixMonth = remainingVaccines.filter(v => v.month === 6);
-				const twelveMonth = remainingVaccines.filter(v => v.month === 12);
-				
-				// for(let i = 0; i < remainingVaccines.length; i++) {
-				// 	if(remainingVaccines[i].month === 2) {
-						
-				// 		twoMonth.push(remainingVaccines[i]);
-				// 	}
-				// }
-				
-				// console.log('REMAINING >>', remainingVaccines);
-				res.render('index.ejs', {
-					two: twoMonth,
-					four: fourMonth,
-					six: sixMonth,
-					twelve: twelveMonth
+                const twoMonth = remainingVaccines.filter(v => v.month === 2);
+                const fourMonth = remainingVaccines.filter(v => v.month === 4);
+                const sixMonth = remainingVaccines.filter(v => v.month === 6);
+                const twelveMonth = remainingVaccines.filter(v => v.month === 12);
+                
+                res.render('index.ejs', {
+                    two: twoMonth,
+                    four: fourMonth,
+                    six: sixMonth,
+					twelve: twelveMonth,
+					remaining: remainingVaccines
 
-				});
-			} catch(err) {
-				console.log('ERROR >>', err);
-			}
-		}
-	});
+                });
+            } catch(err) {
+                console.log('ERROR >>', err);
+            }
+        }
+    });
 });
-
-/*const remainingVaccines = [];
-for(let vaccine of allVaccines) {
-	remainingVaccines.push(filter(vaccine));
-}
-function filter(v) {
-	if(v.month >= req.body.age) {
-		return v;
-	}
-}*/
 
 
 

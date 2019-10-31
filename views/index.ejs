@@ -48,12 +48,8 @@
                     <%for(let i = 0; i < four.length; i++) {%>
                         <h5><a href="show/<%=four[i]._id%>"><%=four[i].name%></a> <!-- needs to be taken when your child is <%=four[i].month%> months old. --></h5>
                     <%}%>
-
-                <%for(let i = 0; i < remaining.length; i++) {%>
-                    <h5><%=remaining[i].month%> MONTHS - <a href="show/<%=remaining[i]._id%>"><%=remaining[i].name%></a></h5>
-                    
-
-                <%}%>
+                    <%}%>
+                
 
                 <!-- SIX MONTHS -->
                 <% if(six.length > 0) {%>
@@ -83,7 +79,7 @@
                 </form>
             </section>
         <%}%>
-
+        
     </main>
 
     <aside class="homeAside">

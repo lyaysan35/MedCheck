@@ -1,9 +1,10 @@
-require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
+require('dotenv').config();
 require('./db/db');
 const Vaccine = require('./models/vaccine');
 
@@ -37,7 +38,6 @@ app.get('/', (req, res) => {
         four: null,
         six: null,
         twelve: null
-
     })
 });
 
