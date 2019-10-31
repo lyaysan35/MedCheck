@@ -5,15 +5,18 @@ body, html {
 
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
     text-decoration: none;
 }
 
-a:hover {
-    color: red;
+ul {
+    list-style-type: none;
 }
+
+
 
 .containerhome {
     display: grid;
@@ -127,6 +130,25 @@ h2 {
 
 /* PATIENT SHOW PAGE */
 
+.patientProfile {
+    max-width:75%;
+    height:auto;
+    border: 2px solid orange;
+    border-radius: 20px;
+}
+
+.delete, button {
+    width: 7em;
+    height: 2em;
+    background: rgba(255, 166, 0, 0.747);
+    border-radius: 10px;
+}
+
+button:hover {
+    background: rgb(132, 133, 124);
+    color: white;
+}
+
 .patient {
     grid-area: P;
     background-color: lightyellow;
@@ -176,7 +198,16 @@ h2 {
   align-content: top;
 }
 
+.links > a {
+    background: white;
+    text-decoration: none;
+    color: black;
+    /* padding: 0 20px; */
+}
 
+a:hover {
+    color: red;
+}
 
 .siteName {
     display: grid;
@@ -216,6 +247,26 @@ label {
     text-align: center;
     font-size: 18px; 
     padding: 7px;
+}
+
+/* Form */
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+.formLabel {
+    /* display: inline; */
+}
+
+.formInput {
+    padding: 5px;
+    margin: 5px;
 }
 
 

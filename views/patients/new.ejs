@@ -21,13 +21,13 @@
             <a href="/users/logout">Logout</a>
         </div>
     </header>
-    <main class=homeMain>
-     <h1>Create a Patient</h1>
-     <form action="/patients" method="POST">
-       Name: <input type="text" name="name" /><br>
-       Age in months: <input type="text" name="age" /><br>
-       Image: <input type="text" name="image" ><br>
-       <button type='Submit'>Create Patient</button>
+    <main class="homeMain">
+     <h1>Add a Patient</h1>
+     <form class="formWrapper" action="/patients" method="POST">
+       <p class="formLabel">Name:</p> <input class="formInput" type="text" name="name" /><br>
+       <p class="formLabel">Age in months:</p> <input class="formInput" type="text" name="age" /><br>
+       <p class="formLabel">Image URL:</p> <input class="formInput" type="text" name="image" ><br>
+       <button type='Submit'>Create</button>
      </form>
    </main>
  </body>
