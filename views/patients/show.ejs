@@ -17,7 +17,7 @@
             <h1>MedCheck</h1> 
         </div>
         <div class="links">
-            <a href="/patients/new">Add A Patient</a>
+            <a href="/patients/new">Add Patient</a>
             <a href="/patients/<%=patient._id%>/edit">Edit User</a>
             <a href="/users">Back</a>
             <a href="/users/logout">Logout</a>
@@ -25,48 +25,37 @@
     </header>
        <section class="patient">
                <h2>Patient Info:</h2>
-               <ul>
-                 <li>Name: <%=patient.name%></li>
-                 <li>Age in months: <%=patient.age%></li>
-               </ul>
+                 <img src="<%=patient.image%>" alt="patient thumbnail" class="patientProfile">
+                 <h4>Name: <%=patient.name%></h4>
+                 <h4>Age in months: <%=patient.age%></h4>
+               
                <form action="/patients/<%=patient._id%>?_method=DELETE" method="POST">
-                <button type='submit'>Delete</button>
+                <button class="delete" type='submit'>Delete</button>
                </form>      
        </section>
        <section class="incompVacc">
-         <h3>Please Click On Each Vaccine <%=patient.name%> Has Been Given:</h3>
-        <ul>
+         <h2>Click On Each Vaccine <%=patient.name%> Has Been Given</h2>
+        <!-- <ul> -->
           <% for(let i = 0; i < vaccines.length; i++) { %>
-            <li><%=vaccines[i].name%> -- complete by month: <%=vaccines[i].month%></li>
+            <h4><%=vaccines[i].name%> -- complete by month: <%=vaccines[i].month%></h4>
             <form action="/patients/<%=patient._id%>/add/<%=vaccines[i]._id%>" method="POST">
               <button type="submit">Completed</button>
             </form>
          <% } %>
-        </ul>
+        <!-- </ul> -->
       </section>
       <section class="compVacc">
-        <h3>Vaccines Completed</h3>
-        <ul>
+        <h2>Vaccines Completed</h2>
+        
           <% for(let i = 0; i < completedVaccines.length; i++) { %>
-            <li><%=completedVaccines[i].name%></li>
+            <h4><%=completedVaccines[i].name%></h4>
             <form action="/patients/<%=patient._id%>/remove/<%=completedVaccines[i]._id%>" method="POST">
               <button type="submit">Remove</button>
             </form>
          <% } %>
-        </ul>
+        
        </section>
 
-       <section>
-            
-            <a href="/users">Back</a>
-            <form action="/patients/<%=patient._id%>?_method=DELETE" method="POST">
-                <button type='submit'>Delete Patient</button>
-            </form>
-    </section>
-    <section>
-           <a href="/patients/<%=patient._id%>/edit">Edit</a>
-   </section>
-   <br>
   </main>
 </body>
 </html>
