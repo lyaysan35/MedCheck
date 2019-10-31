@@ -10,19 +10,28 @@
 </head>
 <body class="containerhome">
 
-    <header class = "homeHeader">
-        <h1>MedCheck</h1>
+    <header class = "navbar">
+        <div class="logoPhoto">
+            <img class="babyphoto" src="/css/babies.jpg">
+        </div>
+        <div class="siteName">
+            <h1>MedCheck</h1> 
+        </div>
+        <div class="links">
+            <a href="google.com">Google</a>
+            <a href="yahoo.com">Yahoo</a>
+            <a href="youtube.com">Youtube</a>
+        </div>
     </header>
 
-    <main class="homeMain">
 
-        <h1>This is the Body of the Home Page - Test!</h1>
-
+    <main class="homeMain" id="ageCheck">
 
     
         <% if(two || four || six || twelve) {%>
             <section>
-                <h1>Scheduling Your Child's Vaccines</h1>
+               
+                <h1>These Are The Remaining Vaccines:</h1>
 
                 <!--Two month -->
                 <% if(two.length > 0) {%>
@@ -38,6 +47,11 @@
                     <%for(let i = 0; i < four.length; i++) {%>
                         <h5><a href="show/<%=four[i]._id%>"><%=four[i].name%></a> <!-- needs to be taken when your child is <%=four[i].month%> months old. --></h5>
                     <%}%>
+
+                <%for(let i = 0; i < remaining.length; i++) {%>
+                    <h5><%=remaining[i].month%> MONTHS - <a href="show/<%=remaining[i]._id%>"><%=remaining[i].name%></a></h5>
+                    
+
                 <%}%>
 
                 <!-- SIX MONTHS -->
@@ -68,8 +82,6 @@
                 </form>
             </section>
         <%}%>
-
-    <img class="babyphoto" src="./css/babies.jpg">
 
     </main>
 

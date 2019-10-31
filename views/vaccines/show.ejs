@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,17 @@
     <title><%= vaccine.name%></title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
+
 <body class="wrapper">
 <header>
     <h1>Vaccine Information</h1>
 </header>
-<main>
+<main class="homeMain">
     <h1><%= vaccine.name %></h1>
     <h3>Age At Which Vaccine is Given: <%= vaccine.month %></h3>
     <h3>Number of Doses Required: <%= vaccine.round %></h3>
-    <h3>Information:</h3>
-    <p><%=vaccine.description%></p>
-    <a href="/">Home</a>
+
+    <a href="/">Back to List</a>
 </main>    
 </body>
 </html>

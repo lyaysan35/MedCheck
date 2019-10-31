@@ -8,21 +8,21 @@
    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="wrapper">
-    <header>
-        <h1>MedCheck</h1>
+    <header class = "navbar">
+        <div class="logoPhoto">
+            <img class="babyphoto" src="/css/babies.jpg">
+        </div>
+        <div class="siteName">
+            <h1>MedCheck</h1> 
+        </div>
+        <div class="links">
+            <a href="/patients/new">Add A Patient</a>
+            <a href="/">Home</a>
+            <a href="/users/logout">Logout</a>
+        </div>
     </header>
-    <main>
+    <main class=homeMain>
      <h1>Create a Patient</h1>
-     <nav>
-       <ul>
-         <li>
-           <a href="/">Home</a>
-         </li>
-         <li>
-           <a href="/patients">Patients Index</a>
-         </li>
-       </ul>
-     </nav>
      <form action="/patients" method="POST">
        Name: <input type="text" name="name" /><br>
        Age in months: <input type="text" name="age" /><br>
