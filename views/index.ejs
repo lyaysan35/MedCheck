@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <% include ./partials/head %>
 
 </head>
 <body class="containerhome">
-
     <header class = "navbar">
-        <div class="logoPhoto">
-            <img class="babyphoto" src="/css/babies.jpg">
-        </div>
         <div class="siteName">
-            <h1>MedCheck</h1> 
+            <h1>BabyVax</h1> 
         </div>
         <div class="links">
-            <a href="google.com">Google</a>
-            <a href="yahoo.com">Yahoo</a>
-            <a href="youtube.com">Youtube</a>
         </div>
     </header>
 
@@ -69,11 +59,12 @@
 
             </section>
         <%} else {%>
-            <section>
-                <h1>Scheduling Your Child's Vaccines</h1>
-                <h3>Find Out Which Vaccines Your Child Needs & When To Schedule Your Appointments</h3>
+            <section class="vaccCheck">
+                <h1 class="vaccTitle">When Should I Schedule My Child's Vaccines?</h1>
+                <h3 class="vaccSub">Find Out Which Vaccines Your Child Needs & When To Schedule Your Appointments</h3>
                 <form action="/vaccines/remaining" method="POST">
-                    <input type="text" name="age" placeholder="Age in Months" /><br>
+                    <input class="ageInput" type="text" name="age" placeholder="" /><br>
+                    <h3>Enter Baby's Age in Months</h3>
                     <br>
                     <button type='Submit'>Check</button>
                 </form>
@@ -91,7 +82,7 @@
                  <br>
                  <button type="submit">Login</button>
                  <br>
-                 <a href="/users">New to MedCheck?</a>
+                 <!-- <a href="/users">New to MedCheck?</a> -->
                 </form><br>
 
         </div>
