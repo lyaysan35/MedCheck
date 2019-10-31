@@ -29,12 +29,20 @@
    </section>
 
    <section class="children">
-    <h2>Patients</h2>
-         <% for(let i = 0; i < user.patients.length; i++) { %>
-             <h3> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a> </h3>
-             <h3> Age: <%=user.patients[i].age %> </h3>
-             <img src="<%=user.patients[i].image%>" alt="patient thumbnail" class="userthumb">
-         <% } %>
+        <h2>Patients</h2>
+       <div class="profile">
+            
+            <% for(let i = 0; i < user.patients.length; i++) { %>
+               <img src="<%=user.patients[i].image%>" alt="patient thumbnail" class="userthumb">
+               <div class="profileInfo">
+                    <h3> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a><br> </h3>
+                    <h3> Age: <%=user.patients[i].age %> months </h3>
+               </div>
+                
+            <% } %>
+       </div>
+    
+    
    </section>
 
    <section class="info">

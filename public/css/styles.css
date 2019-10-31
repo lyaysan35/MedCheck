@@ -109,7 +109,17 @@ h2 {
     grid-area: C;
     background-color: lightblue;
     overflow: auto;
-
+    /* text-align: center; */
+}
+.profile {
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+    height: auto;
+}
+.profileInfo {
+    display: flex;
+    flex-direction: column;
 }
 
 .info {
@@ -125,7 +135,9 @@ h2 {
 .userthumb {
     max-width:25%;
     height:auto;
-
+    border: 2px solid orange;
+    border-radius: 10px;
+    margin: 5px 0;
 }
 
 /* PATIENT SHOW PAGE */
@@ -199,14 +211,17 @@ button:hover {
 }
 
 .links > a {
-    background: white;
+    background: orange;
     text-decoration: none;
     color: black;
-    /* padding: 0 20px; */
+    margin: 0 -5px;
+    padding: 5px 5px;
+    border-radius: 10px;
 }
 
 a:hover {
     color: red;
+    background: white;
 }
 
 .siteName {
