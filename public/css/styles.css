@@ -5,15 +5,18 @@ body, html {
 
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
     text-decoration: none;
 }
 
-a:hover {
-    color: red;
+ul {
+    list-style-type: none;
 }
+
+
 
 .containerhome {
     display: grid;
@@ -91,7 +94,7 @@ h2 {
 /* HOME PAGE */
 
 .babyphoto {
-    max-width: 200px;
+    max-width: 175px;
 }
 
 #ageCheck {
@@ -106,26 +109,66 @@ h2 {
     grid-area: C;
     background-color: lightblue;
     overflow: auto;
-
+    /* text-align: center; */
+}
+.profile {
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+    height: auto;
+}
+.profileInfo {
+    display: flex;
+    flex-direction: column;
 }
 
 .info {
     grid-area: I;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    align-content: start;
     background-color: lightgreen;
 }
 
 .userphoto {
-    max-width:50%;
+    max-width:100px;
     height:auto;
 }
 
 .userthumb {
-    max-width:25%;
+    max-width:100px;
     height:auto;
+    border: 2px solid orange;
+    border-radius: 10px;
+    margin: 5px 0;
+}
 
+.articlethumb {
+    max-width: 250px;
+    height:auto;
 }
 
 /* PATIENT SHOW PAGE */
+
+.patientProfile {
+    max-width:75%;
+    height:auto;
+    border: 2px solid orange;
+    border-radius: 20px;
+}
+
+.delete, button {
+    width: 7em;
+    height: 2em;
+    background: rgba(255, 166, 0, 0.747);
+    border-radius: 10px;
+}
+
+button:hover {
+    background: rgb(132, 133, 124);
+    color: white;
+}
 
 .patient {
     grid-area: P;
@@ -176,7 +219,19 @@ h2 {
   align-content: top;
 }
 
+.links > a {
+    background: orange;
+    text-decoration: none;
+    color: black;
+    margin: 0 -5px;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
 
+a:hover {
+    color: red;
+    background: white;
+}
 
 .siteName {
     display: grid;
@@ -216,6 +271,26 @@ label {
     text-align: center;
     font-size: 18px; 
     padding: 7px;
+}
+
+/* Form */
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+}
+
+.formLabel {
+    /* display: inline; */
+}
+
+.formInput {
+    padding: 5px;
+    margin: 5px;
 }
 
 
