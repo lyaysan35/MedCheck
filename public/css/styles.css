@@ -211,14 +211,17 @@ button:hover {
 }
 
 .links > a {
-    background: white;
+    background: orange;
     text-decoration: none;
     color: black;
-    /* padding: 0 20px; */
+    margin: 0 -5px;
+    padding: 5px 5px;
+    border-radius: 10px;
 }
 
 a:hover {
     color: red;
+    background: white;
 }
 
 .siteName {
