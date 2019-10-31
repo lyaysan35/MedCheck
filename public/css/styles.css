@@ -91,7 +91,7 @@ h2 {
 /* HOME PAGE */
 
 .babyphoto {
-    max-width: 200px;
+    max-width: 175px;
 }
 
 #ageCheck {
@@ -111,18 +111,27 @@ h2 {
 
 .info {
     grid-area: I;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    align-content: start;
     background-color: lightgreen;
 }
 
 .userphoto {
-    max-width:50%;
+    max-width:100px;
     height:auto;
 }
 
 .userthumb {
-    max-width:25%;
+    max-width:100px;
     height:auto;
 
+}
+
+.articlethumb {
+    max-width: 250px;
+    height:auto;
 }
 
 /* PATIENT SHOW PAGE */
