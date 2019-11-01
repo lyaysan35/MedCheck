@@ -81,7 +81,7 @@ router.post('/:id/remove/:vaccineId', async (req, res) => {
 router.put('/:id', async (req, res) => {
  try {
      const updatedPatient = await Patient.findByIdAndUpdate(req.params.id, req.body, {new: true});
-     res.redirect('/patients')
+     res.redirect('/patients/'+req.params.id)
  } catch (err) {
      res.send(err);
  }
