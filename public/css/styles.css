@@ -22,8 +22,8 @@ ul {
 .containerhome {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 70% auto;
-    grid-template-rows: 20% auto;
+    grid-template-columns: 70vw 1fr;
+    grid-template-rows: 20vh 1fr;
     grid-template-areas:
         "H H"
         "M A"
@@ -44,8 +44,8 @@ ul {
 .wrapperPS {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(1fr);
-    grid-template-rows: 20% 80%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 20vh 80vh;
     grid-template-areas: "H H H"
                          "P C I"
 }
@@ -66,7 +66,7 @@ header {
 
 aside {
     grid-area: A;
-    background-color: rgb(66, 66, 230);
+    background-color:lightblue;
     /* font-family: 'Oswald', sans-serif; */
     color: rgb(26, 25, 31);
     display: grid;
@@ -85,14 +85,14 @@ aside {
 }
 
 
-.wrapperPS {
+/* .wrapperPS {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 20% 80%;
     grid-template-areas: "H H H"
                          "P C I"
-}
+} */
 
 
 
@@ -100,10 +100,17 @@ h2 {
     text-align: center;
 }
 /* HOME PAGE */
+.homeButton {
+    margin: 10px 0;
+}
+.vaccList {
+    height: 600px;
+    overflow: scroll;
+}
 
-/* .vaccCheck {
-    font-size: 36px;
-} */
+.vaccCheck {
+    
+}
 
 .babyphoto {
     max-width: 175px;
@@ -125,9 +132,10 @@ h2 {
     text-align: center;
 }
 #ageCheck {
-    display: grid;
+    text-align: center;
+    /* display: flex;
     align-content: center;
-    justify-content: center;
+    justify-content: center; */
 }
 
 .siteName {
@@ -144,15 +152,19 @@ h2 {
 .children {
     grid-area: C;
     background-color: lightblue;
-    overflow: auto;
-    /* text-align: center; */
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    
 }
 .profile {
     display: flex;
     justify-content: space-around;
-    flex-direction: column;
-    /* border: 2px solid red; */
+    background: cornflowerblue;
+    border: 2px solid rgb(20, 72, 114);
     height: auto;
+    margin: 5px 5px;
+
 }
 .profileInfo {
     display: flex;
@@ -198,13 +210,15 @@ h2 {
 .delete, button {
     width: 7em;
     height: 2em;
-    background: rgba(255, 166, 0, 0.747);
+    background: rgba(0, 255, 191, 0.747);
     border-radius: 10px;
+    font-size: 14px;
+    border:2px solid red;
 }
 
 button:hover {
-    background: rgb(132, 133, 124);
-    color: white;
+    color: black;
+    background: rgb(250, 247, 81);
 }
 
 .patient {
@@ -259,18 +273,19 @@ button:hover {
 } */
 
 .links > a {
-    background: orange;
+    background: rgba(0, 255, 191, 0.747);
     text-decoration: none;
     color: black;
-    margin: 0 -5px;
+    margin: 5px 0;
     padding: 5px 5px;
     border-radius: 10px;
-    
+    width: 150px;
+    border:2px solid red;
 }
 
 .links > a:hover {
-    color: red;
-    background: white;
+    color: black;
+    background: rgb(250, 247, 81);
     
 }
 
@@ -281,11 +296,12 @@ button:hover {
 }
 
 .links {
-    display: grid;
-    justify-content: end;
-    align-content: center;
-    grid-auto-flow: column;
-    grid-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* grid-auto-flow: column; */
+    margin-top: 20px;
     font-size: 18px;
 }
 
@@ -295,13 +311,13 @@ button:hover {
 }
 
 .login {
-    border: 3px solid silver;
+    border: 3px solid rgb(80, 76, 76);
     margin: 10px 10px;
 
 }
 
 .register {
-    border: 3px solid silver;
+    border: 3px solid rgb(80, 76, 76);
     margin: 10px 10px;
     padding-bottom: 20px;
 }
@@ -312,6 +328,13 @@ label {
     text-align: center;
     font-size: 18px; 
     padding: 7px;
+}
+
+input {
+    height: 20px;
+    width: 150px;
+    background: rgb(238, 231, 231);
+    margin: 5px 0;
 }
 
 /* Form */
@@ -325,13 +348,24 @@ label {
     justify-items: center;
 }
 
+.editForm {
+    display: flex;
+    flex-direction: row;
+}
+
 .formLabel {
-    /* display: inline; */
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .formInput {
-    padding: 5px;
-    margin: 5px;
+    padding: 7px 0;
+    
+}
+
+label {
+    /* margin: -3px 0; */
 }
 
 
