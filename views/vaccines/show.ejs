@@ -17,7 +17,6 @@
         </div>
     </header>
     
-
 <main class="homeMain">
     <div class="vaccInfo">
         <h1>Vaccine Information</h1>
@@ -30,17 +29,11 @@
         <h3>Number of Doses Required: <%= vaccine.round %></h3>
         <div class="links">
             
-            
-
             <% if (patientId) { %>
                 <a href="/patients/<%=patientId%>">Back</a>
            <% }  else { %>
                 <a href="/">Home</a>
           <% }%>
-            
-           
-            
-          
         
         </div>
     </div>
