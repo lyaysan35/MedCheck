@@ -6,19 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= vaccine.name%></title>
-    
+    <% include ../partials/head %>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 
 <body class="wrapper">
-<header>
-    <h1>Vaccine Information</h1>
-</header>
+    <header class = "navbar">
+        <div class="siteName">
+            <h1>BabyVax</h1> 
+        </div>
+    </header>
+    
+
 <main class="homeMain">
-    <h1><%= vaccine.name %></h1>
+    <h1>Vaccine Information</h1>
+    <h2><%= vaccine.name %></h2>
+    <h3><%=vaccine.description%></h3>
     <h3>Age At Which Vaccine is Given: <%= vaccine.month %></h3>
     <h3>Number of Doses Required: <%= vaccine.round %></h3>
-
+    <div class="links">
     <a href="/">Back to List</a>
+    </div>
 </main>    
 </body>
 </html>

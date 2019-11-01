@@ -6,35 +6,37 @@
 
 </head>
 <body class="wrapperPS">
+
         <header class = "navbar">
-                <div class="siteName">
-                    <h1>BabyVax</h1> 
-                </div>
-                <div class="links">
-                    <a href="/patients/new">Add A Patient</a>
-                    <a href="/">Home</a>
-                    <a href="/users/logout">Logout</a>
-                </div>
-            </header>
+            <div class="siteName">
+                <h1>BabyVax</h1> 
+            </div>   
+        </header>
+
    <section class="patient">
     <h2>User Profile</h2>
     <h3>Username:<%=user.username%></h3>
     <!-- <p><%=user.email%></p> -->
+    <div class="links">
+            <a href="/patients/new">Add A Patient</a>
+            <a href="/">Home</a>
+            <a href="/users/logout">Logout</a>
+        </div>
    </section>
 
    <section class="children">
         <h2>Patients</h2>
-       <div class="profile">
-            
+       
             <% for(let i = 0; i < user.patients.length; i++) { %>
+                <div class="profile">
                <img src="<%=user.patients[i].image%>" alt="patient thumbnail" class="userthumb">
                <div class="profileInfo">
                     <h3> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a><br> </h3>
                     <h3> Age: <%=user.patients[i].age %> months </h3>
                </div>
-                
+            </div>
             <% } %>
-       </div>
+       
     
     
    </section>
