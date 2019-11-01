@@ -85,10 +85,12 @@ router.put('/:id', (req, res) => {
 
 // SHOW ROUTE
 router.get('/show/:id', async (req, res) => {
-	
+  // console.log('patientId String: ', req.params.patientId);
+	// console.log('Query.patientId String: ', req.params.query.patientId);
 	try {
 		Vaccine.findById(req.params.id, (err, vaccine) => {
 			res.render('vaccines/show.ejs', {
+        patientId: req.session.patientId,
 				vaccine: vaccine
 			});
 		});
@@ -129,9 +131,7 @@ router.delete('/:id', (req, res) => {
 // REMAINING ROUTE
 
 router.post('/remaining', (req, res) => {
-    console.log('REQUEST AGE >>', req.body.age);
     Vaccine.find({}, (err, allVaccines) => {
-		console.log(allVaccines, 'ALL VACCINES')
         if(err) {
             console.log('Error >>', err);
             res.send(err);

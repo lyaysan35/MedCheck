@@ -15,8 +15,10 @@
 
     <main class="homeMain" id="ageCheck">
 
+        
+
         <% if(two || four || six || twelve) {%>
-        <h1>These Are The Remaining Vaccines:</h1>
+        <h2>These Are The Remaining Vaccines:</h2>
         
             <section class="vaccList">
                
@@ -54,15 +56,23 @@
 
             </section>
         <%} else {%>
-            <section class="vaccCheck">
-                <h1 class="vaccTitle">When Should I Schedule My Child's Vaccines?</h1>
-                <h3 class="vaccSub">Find Out Which Vaccines Your Child Needs & When To Schedule Your Appointments</h3>
-                <form action="/vaccines/remaining" method="POST">
-                    <input class="ageInput" type="text" name="age" placeholder="" /><br>
-                    <h3>Enter Baby's Age in Months</h3>
-                    <br>
+            <div class="siteInfo">
+                    <h2 id="homeTitle">What is your baby's next vaccine?</h2>
                     
-                    <button type='Submit'>Check</button>
+                    <p class="homeInfo"> <span style="font-size: 28px;">Register</span> to keep track of your baby's vaccination progress.</p>
+                    <p class="homeInfo">Quickly find out what vaccine is next with our calculator below. </p>
+                </div>
+                
+            <section class="vaccCheck">
+                <!-- <h2 class="vaccTitle">When Should I Schedule My Child's Vaccines?</h2> -->
+                <!-- <h3 class="vaccSub">Find Out Which Vaccines Your Child Needs and When:</h3> -->
+                <form action="/vaccines/remaining" method="POST">
+                    
+                    
+                    
+                    <h3>Enter Baby's Age in Months</h3>
+                    <input class="ageInput" type="text" name="age" placeholder="" /><br>
+                    <button id="checkButton" type='Submit'>Check</button>
                     
                 </form>
             </section>

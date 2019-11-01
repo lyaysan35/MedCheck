@@ -14,18 +14,20 @@
         </header>
 
    <section class="patient">
-    <h2>User Profile</h2>
-    <h3>Username:<%=user.username%></h3>
+    <h2><%=user.username%>'s Info</h2>
     <!-- <p><%=user.email%></p> -->
-    <div class="links">
-            <a href="/patients/new">Add A Patient</a>
+    <div class="linksContainer">
+        <div class="links">
+            <a href="/patients/new">Add A Baby</a>
             <a href="/">Home</a>
             <a href="/users/logout">Logout</a>
         </div>
+    </div>
+    
    </section>
 
    <section class="children">
-        <h2>Patients</h2>
+        <h2>Babies</h2>
        
             <% for(let i = 0; i < user.patients.length; i++) { %>
                 <div class="profile">
@@ -42,11 +44,11 @@
    </section>
 
    <section class="info">
-    <h2>Important Resources</h2>
+    <h2>Vaccination Resources</h2>
     <img src="" class="articlethumb">
     <h3></h3>
    <a href="https://www.cdc.gov/vaccines/parents/why-vaccinate/vaccine-decision.html"><img src="./css/whyvaccinate.jpg" class="articlethumb"></a>
-   <a href="https://www.cdc.gov/vaccines/parents/why-vaccinate/vaccine-decision.html"><h3>Why Vaccinate?</h3></a>
+   <a href="https://www.cdc.gov/vaccines/parents/why-vaccinate/vaccine-decision.html"><h3>Why Vaccinate?</h3></a><br><br>
    <a href="https://www.cdc.gov/vaccines/parents/why-vaccinate/risks-delaying-vaccines.html"><img src="./css/vaccines.jpg" class="articlethumb"></a>
    <a href="https://www.cdc.gov/vaccines/parents/why-vaccinate/risks-delaying-vaccines.html"><h3>What If I Skip a Vaccine?</h3></a>
 </section>

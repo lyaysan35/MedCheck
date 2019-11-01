@@ -19,14 +19,32 @@
     
 
 <main class="homeMain">
-    <h1>Vaccine Information</h1>
-    <h2><%= vaccine.name %></h2>
-    <h3><%=vaccine.description%></h3>
-    <h3>Age At Which Vaccine is Given: <%= vaccine.month %></h3>
-    <h3>Number of Doses Required: <%= vaccine.round %></h3>
-    <div class="links">
-    <a href="/">Back to List</a>
+    <div class="vaccInfo">
+        <h1>Vaccine Information</h1>
+        <h2><%= vaccine.name %></h2>
+        <div class="vaccDescription">
+            <h3><%=vaccine.description%></h3>
+        </div>
+        
+        <h3>Age At Which Vaccine is Given: <%= vaccine.month %></h3>
+        <h3>Number of Doses Required: <%= vaccine.round %></h3>
+        <div class="links">
+            
+            
+
+            <% if (patientId) { %>
+                <a href="/patients/<%=patientId%>">Back</a>
+           <% }  else { %>
+                <a href="/">Home</a>
+          <% }%>
+            
+           
+            
+          
+        
+        </div>
     </div>
+    
 </main>    
 </body>
 </html>
