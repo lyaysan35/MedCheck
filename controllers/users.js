@@ -60,7 +60,6 @@ router.post('/registration', async (req, res) => {
         req.session.username = createdUser.username;
         req.session.userId = createdUser._id;
         req.session.logged = true;
-        console.log(createdUser);
         res.redirect('/users');
     } catch(err) {
         res.send(err);
@@ -106,6 +105,7 @@ router.get('/', async (req, res) => {
     try {
         const foundUser = await User.findOne({_id: req.session.userId}).populate('patients').exec();
         const allVaccines = await Vaccine.find();
+        req.session.patientId = '';
         res.render('users/index.ejs', {
             user: foundUser,
             vaccines: allVaccines
@@ -118,20 +118,14 @@ router.get('/', async (req, res) => {
 // DELETE ROUTE
 router.delete('/:id', async (req, res) => {
     try {
-        // const foundUser = await User.findOne({_id: req.session.userId});
+        
 
         const deletedUser = await User.findByIdAndRemove(req.session.userId);
         const patientIds = [];
         for(let i = 0; i < deletedUser.patients.length; i++) {
             patientIds.push(deletedUser.patients[i]._id);
         }
-        console.log('PATIENT IDS', patientIds)
-        // const foundPatients = await find({
-        //     _id: {
-        //         $in: patientIds
-        //     }
-        // })
-        // foundPatients.remove();
+        
         Patient.deleteMany(
             {
                 _id: {

@@ -43,9 +43,10 @@ ul {
 
 .wrapperPS {
     display: grid;
+    height: 100%;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 20vh 80vh;
+    grid-template-rows: 20vh 1fr;
     grid-template-areas: "H H H"
                          "P C I"
 }
@@ -75,29 +76,34 @@ aside {
 .homeMain {
     grid-area: M;
     /* background-color: green; */
-    background-color: rgb(114, 165, 173);
+    background-color: rgb(180, 235, 180);
     border-radius: 20px;
     text-align: center;
     font-family: 'Oswald', sans-serif;
     color: rgb(26, 25, 31);
     padding: 0 70px;
     /* background-image: url('babies.jpg') */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
 }
 
-
-/* .wrapperPS {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 30% 40% 30%;
-    grid-template-rows: 20% 80%;
-    grid-template-areas: "H H H"
-                         "P C I"
-} */
-
-
+.vaccInfo {
+    width: 90vw;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.vaccDescription {
+    width: 90vw;
+    /* height: 20vh; */
+    overflow: scroll;
+    position: relative;
+}
 
 h2 {
     text-align: center;
+    font-size: 30px;
 }
 /* HOME PAGE */
 .homeButton {
@@ -106,6 +112,10 @@ h2 {
 .vaccList {
     height: 600px;
     overflow: scroll;
+}
+
+.siteInfo {
+    width: 60%:
 }
 
 .vaccCheck {
@@ -121,7 +131,7 @@ h2 {
 }
 
 .vaccSub {
-    font-size: 36px;
+    font-size: 24px;
 }
 
 .ageInput {
@@ -155,7 +165,7 @@ h2 {
     overflow: scroll;
     display: flex;
     flex-direction: column;
-    
+    height: auto;
 }
 .profile {
     display: flex;
@@ -177,7 +187,7 @@ h2 {
     justify-content: center;
     text-align: center;
     align-content: start;
-    background-color: lightgreen;
+    background-color: rgb(180, 235, 180);
 }
 
 .userphoto {
@@ -196,6 +206,14 @@ h2 {
 .articlethumb {
     max-width: 250px;
     height:auto;
+}
+
+.linksContainer {
+    margin-top: 20%;
+    /* display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center; */
 }
 
 /* PATIENT SHOW PAGE */
@@ -230,7 +248,7 @@ button:hover {
 
 .compVacc {
     grid-area: C;
-    background-color: lightcoral;
+    background-color: rgb(245, 174, 174);
     border-radius: 20px;
     text-align: center;
 
@@ -240,7 +258,7 @@ button:hover {
     grid-area: I;
     justify-items: center;
     text-align: center;
-    background-color: lightgreen;
+    background-color: rgb(112, 219, 238);
     border-radius: 20px;
     overflow: auto;
 } 
@@ -369,7 +387,7 @@ label {
 }
 
 
-/* @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .containerhome {
         margin: 0;
         display: grid;
@@ -394,4 +412,4 @@ label {
     
     }
     
-} */
+}

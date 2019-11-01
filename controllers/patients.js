@@ -95,6 +95,8 @@ router.get('/:id', async (req, res) => {
    .populate('vaccines')
    .populate('completed')
    .exec();
+   req.session.patientId = req.params.id;
+   console.log(req.session.patientId, "<<PATIENT ID")
    const vaccineArr = foundPatient.vaccines.sort();
    res.render('patients/show.ejs', {
       patient: foundPatient,
