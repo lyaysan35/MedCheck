@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <meta name="description" content="Find out if your baby has all necessary vaccinations. Register to keep track of your baby's vaccinations over time.">
+    <title>BabyVax</title>
+    
     <% include ./partials/head %>
 
 </head>
@@ -79,7 +81,7 @@
         <h3>Log In</h3>
             <form action="/users/login" method="POST">
                 <label>Username:</label> <input type="text" name="username">
-                 <label>Password:</label> <input type="text" name="password">
+                 <label>Password:</label> <input type="password" name="password">
                  <br>
                  <button class="homeButton" type="submit">Login</button>
                  <br>
@@ -93,7 +95,7 @@
             <form action="/users/registration" method="POST">
                 <label>Username:</label> <input type="text" name="username"><br>
                 <label>Email:</label> <input type="text" name="email"><br>
-                <label>Password:</label><input type="text" name="password"><br>
+                <label>Password:</label><input type="password" name="password"><br>
             <button class="homeButton" type="Submit" name="Create User">Register</button>
         </form>
         </div> 

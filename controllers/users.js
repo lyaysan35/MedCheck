@@ -89,16 +89,16 @@ router.put('/:id', async (req, res) => {
 })
 
 // SHOW ROUTE
-router.get('/:id', async (req, res) => {
-    try {
-        const foundUser = await User.findOne(req.session.userId);
-        res.render('users/show.ejs', {
-            user: foundUser
-        })
-    } catch(err) {
-        res.send(err);
-    }
-})
+// router.get('/:id', async (req, res) => {
+//     try {
+//         const foundUser = await User.findOne(req.session.userId);
+//         res.render('users/show.ejs', {
+//             user: foundUser
+//         })
+//     } catch(err) {
+//         res.send(err);
+//     }
+// })
 
 // INDEX ROUTE
 router.get('/', async (req, res) => {

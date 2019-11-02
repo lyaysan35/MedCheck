@@ -109,16 +109,16 @@ router.get('/:id', async (req, res) => {
 });
 
 // INDEX ROUTE
-router.get('/', async (req, res)=>{
-   try {
-     const foundPatients = await Patient.find({});
-     res.render('patients/index.ejs', {
-         patients: foundPatients
-       });
-   } catch(err){
-     res.send(err);
-   }
- });
+// router.get('/', async (req, res)=>{
+//    try {
+//      const foundPatients = await Patient.find({});
+//      res.render('patients/index.ejs', {
+//          patients: foundPatients
+//        });
+//    } catch(err){
+//      res.send(err);
+//    }
+//  });
 
 // DELETE ROUTE
 router.delete('/:id', async (req, res) => {

@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Edit</title>
+    <title>Edit User</title>
     <% include ../partials/head %>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body class="wrapper">
-        <header class = "navbar">
-                <div class="siteName">
-                    <h1>BabyVax</h1> 
-                </div>
-                <div class="links">
-                </div>
-            </header>
-<main>
-    <h1>Edit User</h1>
-    <form action="/users/<%=user._id%>?_method=PUT" method="POST">
-        Username: <input type="text" name="username" value="<%=user.username%>"><br>
-        <!-- Password: <input type="text" name="password"><br> -->
-        Email: <input type="text" name="email" value="<%=user.email%>"><br>
-        <input type="Submit" name="Create User">
-    </form>
-    <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete User</button>
-    </form>
-</main>
+    <header class = "navbar">
+        <div class="siteName">
+            <h1>BabyVax</h1> 
+        </div>
+        <div class="links">
+        </div>
+    </header>
+
+    <main class="homeMain" id="editUser">
+
+        <h2>What Would You Like to Change?</h2>
+        
+        <form  action="/users/<%=user._id%>?_method=PUT" method="POST">
+        <div class="editForm">
+            <div class="formLabel">
+                <label>Username:</label> 
+                <label>Email:</label> 
+            </div>
+            
+            <div class="formInput">
+                <input type="text" name="username" value="<%=user.username%>"><br>
+                <input type="text" name="email" value="<%=user.email%>"><br> 
+            </div>
+        </div>
+        <button type="submit">Update</button>
+        </form>
+        <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete User</button>
+        </form>
+        
+        <div class="links">
+            <a href="/users">Back</a>
+            <a href="/users/logout">Logout</a>
+        </div>
+    </main>   
 </body>
 </html>

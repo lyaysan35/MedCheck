@@ -8,85 +8,80 @@ const Vaccine = require('../models/vaccine');
 router.use(express.static('public'));
 
 // NEW ROUTE
-router.get('/new', async (req, res)=>{
+// router.get('/new', async (req, res)=>{
 	
-  try {
+//   try {
       
-     const allVaccines = await Vaccine.find({});
+//      const allVaccines = await Vaccine.find({});
     
 
 
-    res.render('vaccines/new.ejs', {
-    	vaccines: allVaccines
-    });
+//     res.render('vaccines/new.ejs', {
+//     	vaccines: allVaccines
+//     });
 
-  } catch (err) {
+//   } catch (err) {
 
-      res.send(err);
-  }
-});
+//       res.send(err);
+//   }
+// });
 
-router.post('/', async (req, res)=> {
+// router.post('/', async (req, res)=> {
 	
-  try {
-     Vaccine.create({
-     	months: req.body.months,
-     	name: req.body.name,
-     	rounds: req.body.rounds
-     }, (err, createdVaccine) => {
-     	if(err) {
+//   try {
+//      Vaccine.create({
+//      	months: req.body.months,
+//      	name: req.body.name,
+//      	rounds: req.body.rounds
+//      }, (err, createdVaccine) => {
+//      	if(err) {
 			
-     	} else {
+//      	} else {
      		
-     		res.render('vaccines/show.ejs', {
-    			vaccine: createdVaccine
-    		});
-     	}
-     });
+//      		res.render('vaccines/show.ejs', {
+//     			vaccine: createdVaccine
+//     		});
+//      	}
+//      });
 
-  } catch (err) {
-      res.send(err);
-  }
-});
+//   } catch (err) {
+//       res.send(err);
+//   }
+// });
 
 
 // EDIT ROUTE
 
-router.get('/edit/:id', async (req, res)=> {
+// router.get('/edit/:id', async (req, res)=> {
  	
-    Vaccine.findById(req.params.id, (err, vaccine) => {
-    	if(err) {
-    		;
-			res.send(err);
-    	} else {
+//     Vaccine.findById(req.params.id, (err, vaccine) => {
+//     	if(err) {
+//     		;
+// 			res.send(err);
+//     	} else {
     		
-    		res.render('vaccines/edit.ejs', {
-            	vaccine: vaccine,
-          	});
-  		}
-    });
-});
+//     		res.render('vaccines/edit.ejs', {
+//             	vaccine: vaccine,
+//           	});
+//   		}
+//     });
+// });
 
-
-
-
-router.put('/:id', (req, res) => {
-  Vaccine.findByIdAndUpdate(req.params.id, req.body, {new: true},(err, updatedVaccine) => {
-    if(err){
-      res.send(err);
-    } else{
-      res.render('vaccines/show.ejs', {
-      	vaccine: updatedVaccine
-      });
-    }
-  });
-});
+// router.put('/:id', (req, res) => {
+//   Vaccine.findByIdAndUpdate(req.params.id, req.body, {new: true},(err, updatedVaccine) => {
+//     if(err){
+//       res.send(err);
+//     } else{
+//       res.render('vaccines/show.ejs', {
+//       	vaccine: updatedVaccine
+//       });
+//     }
+//   });
+// });
 
 
 // SHOW ROUTE
 router.get('/show/:id', async (req, res) => {
-  // console.log('patientId String: ', req.params.patientId);
-	// console.log('Query.patientId String: ', req.params.query.patientId);
 	try {
 		Vaccine.findById(req.params.id, (err, vaccine) => {
 			res.render('vaccines/show.ejs', {
@@ -117,16 +112,16 @@ router.get('/', (req, res) => {
 
 // DELETE ROUTE
 
-router.delete('/:id', (req, res) => {
-	Vaccine.findByIdAndRemove(req.params.id, (err, foundVaccine) => {
-		if(err){
+// router.delete('/:id', (req, res) => {
+// 	Vaccine.findByIdAndRemove(req.params.id, (err, foundVaccine) => {
+// 		if(err){
 			
-	   } else {
+// 	   } else {
 	   	
-	   	res.redirect('/vaccines');
-	   }
-	});
-});
+// 	   	res.redirect('/vaccines');
+// 	   }
+// 	});
+// });
 
 // REMAINING ROUTE
 

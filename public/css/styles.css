@@ -75,14 +75,12 @@ aside {
 
 .homeMain {
     grid-area: M;
-    /* background-color: green; */
     background-color: rgb(180, 235, 180);
     border-radius: 20px;
     text-align: center;
     font-family: 'Oswald', sans-serif;
     color: rgb(26, 25, 31);
     padding: 0 70px;
-    /* background-image: url('babies.jpg') */
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -91,12 +89,10 @@ aside {
 
 .vaccInfo {
     width: 90vw;
-    word-wrap: break-word;
-    word-break: break-all;
+    word-wrap: break-word; */
 }
 .vaccDescription {
     width: 90vw;
-    /* height: 20vh; */
     overflow: scroll;
     position: relative;
 }
@@ -285,12 +281,6 @@ button:hover {
    
 }
 
-/* .logoPhoto {
-  display: grid;
-  justify-content: start;
-  align-content: top;
-} */
-
 .links > a {
     background: rgba(0, 255, 191, 0.747);
     text-decoration: none;
@@ -319,7 +309,6 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* grid-auto-flow: column; */
     margin-top: 20px;
     font-size: 18px;
 }
