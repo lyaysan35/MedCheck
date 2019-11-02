@@ -3,24 +3,28 @@
 <head>
     <title>New</title>
     <% include ../partials/head %>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
+
 <body class="wrapper">
-        <header class = "navbar">
-                <div class="siteName">
-                    <h1>BabyVax</h1> 
-                </div>
-                <div class="links">
-                </div>
-            </header>
-    <main>
+
+    <header class = "navbar">
+        <div class="siteName">
+            <h1>BabyVax</h1> 
+        </div>
+            <div class="links">
+            </div>
+    </header>
+
+    <main class="homeMain">
         <h1>New User</h1>
-        <br>
-        <form action="/users/registration" method="POST">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="text" name="password"><br>
-            Email: <input type="text" name="email"><br>
-            <input type="Submit" name="Create User">
+        <form class="formWrapper" action="/users/registration" method="POST">
+            <p class="formLabel">Username:</p> <input type="text" name="username"><br>
+            <p class="formLabel">Password:</p> <input type="text" name="password"><br>
+            <p class="formLabel">Email:</p><input type="text" name="email"><br>
+            <button type="Submit" name="Create User">Create User</button>
         </form>
     </main>
+    
 </body>
 </html>

@@ -41,13 +41,13 @@ router.get('/logout', async (req, res) => {
 })
 
 // NEW ROUTE
-// router.get('/new', async (req, res) => {
-//     try {
-//         res.render('users/new.ejs');
-//     } catch(err) {
-//         res.send(err);
-//     }
-// })
+router.get('/new', async (req, res) => {
+    try {
+        res.render('users/new.ejs');
+    } catch(err) {
+        res.send(err);
+    }
+})
 router.post('/registration', async (req, res) => {
     try {
         const hashedPassword = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
