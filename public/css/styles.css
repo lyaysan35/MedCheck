@@ -58,7 +58,7 @@ ul {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 20vh 1fr;
     grid-template-areas: "H H H"
-                         "P C I"
+                         "P B R"
 }
 
 /* HEADER AND LOGIN */
@@ -167,10 +167,10 @@ h2 {
     color: rgb(51, 51, 153, 0.6)
 }
 
-/* USER HOME PAGE */
+/* USER / PATIENT INFO PAGE */
 
 .children {
-    grid-area: C;
+    grid-area: B;
     background-color: lightblue;
     overflow: scroll;
     display: flex;
@@ -192,7 +192,7 @@ h2 {
 }
 
 .info {
-    grid-area: I;
+    grid-area: R;
     display: grid;
     justify-content: center;
     text-align: center;
@@ -419,6 +419,18 @@ input {
    
 }
 
+.links {
+    display: grid; 
+    grid-auto-flow: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.linksContainer {
+    margin-top: 5%;
+}
+
 .wrapper {
     display: grid;
     margin: 0;
@@ -445,9 +457,6 @@ input {
     align-content: center;
 }
 
-.links {
-    display: none;
-}
 
 .wrapperPI {
         margin: 0;
@@ -455,11 +464,11 @@ input {
         justify-content: center;
         height: 100%;
         grid-template-columns: 100%;
-        grid-template-rows: 1fr 2fr 2fr;
+        grid-template-rows: 10% auto;
         grid-template-areas: "H"
                              "P"
-                             "C"
-                             "I"
+                             "B"
+                            
 }
 
 .patient {
@@ -467,23 +476,27 @@ input {
         background-color: lightyellow;
         border-radius: 20px;
         text-align: center;
+        overflow: scroll;
     }
-    
+
+.children {
+        grid-area: B;
+        background-color: lightblue;
+        display: grid;
+        overflow: scroll;
+    }
+
 .info {
-    grid-area: I;
+    display: none;
+    /* grid-area: R;
     display: grid;
     justify-content: center;
     text-align: center;
     align-content: start;
-    background-color: rgb(180, 235, 180);
+    background-color: rgb(180, 235, 180); */
 }
 
-.children {
-    grid-area: C;
-    background-color: lightblue;
-    display: grid;
-    height: auto;
-}
+
 
 
 .wrapperPS {
@@ -491,36 +504,39 @@ input {
     display: grid;
     justify-content: center;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 2fr 2fr 2fr;
+    grid-template-rows: 10% 30% 30% 30%;
     grid-template-areas: "H"
                          "P"
                          "C"
                          "I"
+        
 
 }
 
 
-.vaccList {
-    display: none;
-}
+
 
 .compVacc {
     grid-area: C;
-    background-color: rgb(245, 174, 174);
+    margin: 0;
+    background-color: #f5aeae;
     border-radius: 20px;
     text-align: center;
+    overflow: scroll;
 
 }
 
 .incompVacc {
     grid-area: I;
+    margin: 0;
     text-align: center;
     background-color: rgb(112, 219, 238);
     border-radius: 20px;
+    overflow: scroll;
 } 
 
 .patientProfile {
-    max-width:10%;
+    max-width:20%;
     height:auto;
     border: 2px solid orange;
     border-radius: 20px;
