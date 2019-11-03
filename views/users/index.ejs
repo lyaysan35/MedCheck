@@ -5,43 +5,43 @@
     <% include ../partials/head %>
 
 </head>
-<body class="wrapperPS">
-
+<body class="wrapperPI">
         <header class = "navbar">
             <div class="siteName">
                 <h1>BabyVax</h1> 
             </div>   
         </header>
 
+
    <section class="patient">
     <h2><%=user.username%>'s Info</h2>
     <!-- <p><%=user.email%></p> -->
     <div class="linksContainer">
         <div class="links">
-            <a href="/patients/new">Add A Baby</a>
-            <a href="/users/<%=user._id%>/edit">Edit User</a>
-            <a href="/">Home</a>
-            <a href="/users/logout">Logout</a>
+                <a href="/patients/new">Add A Baby</a>
+                <a href="/users/<%=user._id%>/edit">Edit User</a>
+                <a href="/">Home</a>
+                <a href="/users/logout">Logout</a>
         </div>
     </div>
     
    </section>
 
    <section class="children">
-        <h2>Babies</h2>
+       
+    <h2>Babies</h2>
        
             <% for(let i = 0; i < user.patients.length; i++) { %>
-                <div class="profile">
+            <section class="profile">
                <img src="<%=user.patients[i].image%>" alt="patient thumbnail" class="userthumb">
                <div class="profileInfo">
                     <h3> Name:<a href="/patients/<%=user.patients[i]._id%>"> <%=user.patients[i].name%></a><br> </h3>
                     <h3> Age: <%=user.patients[i].age %> months </h3>
                </div>
-            </div>
+            </section>
             <% } %>
              
    </section>
-
    <section class="info">
     <h2>Vaccination Resources</h2>
     <img src="" class="articlethumb">
