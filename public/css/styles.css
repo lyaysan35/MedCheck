@@ -51,6 +51,15 @@ ul {
                          "P C I"
 }
 
+.wrapperPI {
+    display: grid;
+    height: 100%;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 20vh 1fr;
+    grid-template-areas: "H H H"
+                         "P C I"
+}
 
 /* HEADER AND LOGIN */
 
@@ -89,7 +98,7 @@ aside {
 
 .vaccInfo {
     width: 90vw;
-    word-wrap: break-word; */
+    word-wrap: break-word;
 }
 .vaccDescription {
     width: 90vw;
@@ -378,7 +387,7 @@ input {
         margin: 0;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 1fr 2fr 2fr;
+        grid-template-rows: 1fr 3fr 1fr;
         grid-template-areas:
             "H"
             "M"
@@ -386,16 +395,135 @@ input {
                                        
     }
 
-    .container {
+    .siteName {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .siteName {
+        font-family: 'Titan One', cursive;
+        font-size: 30px;
+        display: grid;
+        align-content: center;
+        letter-spacing: 5px;
+        color: rgb(51, 51, 153, 0.6)
+    }
+
+    .navbar {
+    text-align: center;
+    display: grid;
+    grid-auto-flow: column;
+    align-content: center;
+   
+   
+}
+
+.wrapper {
+    display: grid;
+    margin: 0;
+    grid-gap: 10px;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% auto;
+    grid-template-areas: "H"
+                         "M"
+
+}
+
+ 
+
+#editUser {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.editForm {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-content: center;
+}
+
+.links {
+    display: none;
+}
+
+.wrapperPI {
         margin: 0;
         display: grid;
-        grid-gap: 20px;
+        justify-content: center;
+        height: 100%;
         grid-template-columns: 100%;
-        grid-template-rows: 20% 80%;
-        grid-template-areas: "H H"
-                             "M M"
-                             "M M"
-    
+        grid-template-rows: 1fr 2fr 2fr;
+        grid-template-areas: "H"
+                             "P"
+                             "C"
+                             "I"
+}
+
+.patient {
+        grid-area: P;
+        background-color: lightyellow;
+        border-radius: 20px;
+        text-align: center;
     }
+    
+.info {
+    grid-area: I;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    align-content: start;
+    background-color: rgb(180, 235, 180);
+}
+
+.children {
+    grid-area: C;
+    background-color: lightblue;
+    display: grid;
+    height: auto;
+}
+
+
+.wrapperPS {
+    margin: 0;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 2fr 2fr 2fr;
+    grid-template-areas: "H"
+                         "P"
+                         "C"
+                         "I"
+
+}
+
+
+.vaccList {
+    display: none;
+}
+
+.compVacc {
+    grid-area: C;
+    background-color: rgb(245, 174, 174);
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+.incompVacc {
+    grid-area: I;
+    text-align: center;
+    background-color: rgb(112, 219, 238);
+    border-radius: 20px;
+} 
+
+.patientProfile {
+    max-width:10%;
+    height:auto;
+    border: 2px solid orange;
+    border-radius: 20px;
+}
     
 }
