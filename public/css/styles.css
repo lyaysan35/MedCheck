@@ -419,12 +419,34 @@ input {
    
 }
 
+
+
 .links {
-    display: grid; 
-    grid-auto-flow: row;
-    justify-content: center;
-    align-items: center;
+
+    display: flex; 
+    flex-direction: row;
+    /* justify-content: start;
+    align-items: end; */
+    margin-top: 20px;
     font-size: 10px;
+}
+
+
+#patientlinks {
+    display: flex; 
+    flex-direction: row;
+    /* justify-content: start;
+    align-items: end; */
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+.userthumb {
+    max-width:40%;
+    height:auto;
+    border: 2px solid orange;
+    border-radius: 10px;
+    margin: 10px 0;
 }
 
 .linksContainer {
@@ -503,17 +525,18 @@ input {
     margin: 0;
     display: grid;
     justify-content: center;
-    grid-template-columns: 100%;
-    grid-template-rows: 10% 30% 30% 30%;
-    grid-template-areas: "H"
-                         "P"
-                         "C"
-                         "I"
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10% 40% 50%;
+    grid-template-areas: "H H"
+                         "P P"
+                         "C I"
         
 
 }
 
-
+.vaccList {
+    overflow: scroll;
+}
 
 
 .compVacc {

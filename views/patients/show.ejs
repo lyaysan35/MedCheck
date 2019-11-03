@@ -14,16 +14,14 @@
         
     </header>
        <section class="patient">
-               <h2>Baby Info:</h2>
+                <h4><%=patient.name%></h4>
                  <img src="<%=patient.image%>" alt="patient thumbnail" class="patientProfile">
-                 <h4>Name: <%=patient.name%></h4>
-                 <h4>Age in months: <%=patient.age%></h4>
+                 <h4><%=patient.age%> Months Old</h4>
                
                <form action="/patients/<%=patient._id%>?_method=DELETE" method="POST">
                 <button class="delete" type='submit'>Delete</button>
                </form>
-               <div class="links patienLinks">
-                  
+               <div class="links" id="patientLinks">
                   <a href="/patients/<%=patient._id%>/edit">Edit Patient</a>
                   <a href="/users">Back</a>
                   <a href="/users/logout">Logout</a>
@@ -34,7 +32,8 @@
           <h2>Vaccines to be Completed</h2>
         <div class="vaccList">
           <% for(let i = 0; i < vaccines.length; i++) { %>
-            <h4><a href="/vaccines/show/<%=vaccines[i]._id%>"><%=vaccines[i].name%></a> -- complete by month: <%=vaccines[i].month%></h4>
+            <h4><a href="/vaccines/show/<%=vaccines[i]._id%>"><%=vaccines[i].name%></a></h4>
+            <h4>Due By Month <%=vaccines[i].month%></h4>
             <form action="/patients/<%=patient._id%>/add/<%=vaccines[i]._id%>" method="POST">
               <button type="submit">Completed</button>
             </form>
@@ -48,7 +47,8 @@
           <% for(let i = 0; i < completedVaccines.length; i++) { %>
             <h4><a href="/vaccines/show/<%=completedVaccines[i]._id%>"><%=completedVaccines[i].name%></a></h4>
             <form action="/patients/<%=patient._id%>/remove/<%=completedVaccines[i]._id%>" method="POST">
-              <button type="submit">Remove</button>
+            <!-- <button type="submit"><%=completedVaccines[i].name%></button> -->
+            <button type="submit">Remove</button>
             </form>
          <% } %>
         </div>
