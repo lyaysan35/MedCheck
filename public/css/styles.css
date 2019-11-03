@@ -419,7 +419,17 @@ input {
    
 }
 
+.vaccInfo {
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
 
+.vaccDescription {
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+}
 
 .links {
 
@@ -498,7 +508,6 @@ input {
         background-color: lightyellow;
         border-radius: 20px;
         text-align: center;
-        overflow: scroll;
     }
 
 .children {
@@ -534,15 +543,16 @@ input {
 
 }
 
-.vaccList {
+/* .vaccList {
     overflow: scroll;
-}
+} */
 
-
+ß
 .compVacc {
     grid-area: C;
     margin: 0;
     background-color: #f5aeae;
+    text-align: center;
     border-radius: 20px;
     text-align: center;
     overflow: scroll;
