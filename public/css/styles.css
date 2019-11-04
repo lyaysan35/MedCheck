@@ -435,12 +435,17 @@ input {
 
     display: flex; 
     flex-direction: row;
-    /* justify-content: start;
-    align-items: end; */
     margin-top: 20px;
     font-size: 10px;
 }
 
+#addNewLinks {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 10px;
+}
 
 #patientlinks {
     display: flex; 
