@@ -307,6 +307,23 @@ button:hover {
     
 }
 
+.homeLinks > a {
+    background: rgba(0, 255, 191, 0.747);
+    text-decoration: none;
+    color: black;
+    margin: 5px 0;
+    padding: 5px 5px;
+    border-radius: 10px;
+    width: 150px;
+    border:2px solid red;
+}
+
+.homelinks > a:hover {
+    color: black;
+    background: rgb(250, 247, 81);
+    
+}
+
 .siteName {
     display: grid;
     justify-content: center;
@@ -321,6 +338,24 @@ button:hover {
     margin-top: 20px;
     font-size: 18px;
 }
+
+.homeLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#addNewLinks {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 10px;
+}
+
 
 .homeAside {
     text-align: center;
@@ -439,6 +474,10 @@ input {
     font-size: 10px;
 }
 
+.homeLinks {
+    display: none;
+}
+
 #addNewLinks {
     display: flex; 
     flex-direction: row;
@@ -466,6 +505,10 @@ input {
 
 .linksContainer {
     margin-top: 5%;
+}
+
+.newPageLinks {
+    display: none;
 }
 
 .wrapper {
