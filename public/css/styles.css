@@ -257,6 +257,7 @@ button:hover {
     background-color: rgb(245, 174, 174);
     border-radius: 20px;
     text-align: center;
+    overflow: auto;
 
 }
 
@@ -307,6 +308,23 @@ button:hover {
     
 }
 
+.homeLinks > a {
+    background: rgba(0, 255, 191, 0.747);
+    text-decoration: none;
+    color: black;
+    margin: 5px 0;
+    padding: 5px 5px;
+    border-radius: 10px;
+    width: 150px;
+    border:2px solid red;
+}
+
+.homelinks > a:hover {
+    color: black;
+    background: rgb(250, 247, 81);
+    
+}
+
 .siteName {
     display: grid;
     justify-content: center;
@@ -321,6 +339,24 @@ button:hover {
     margin-top: 20px;
     font-size: 18px;
 }
+
+.homeLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#addNewLinks {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 10px;
+}
+
 
 .homeAside {
     text-align: center;
@@ -419,16 +455,61 @@ input {
    
 }
 
-.links {
-    display: grid; 
-    grid-auto-flow: row;
+.vaccInfo {
+    align-content: center;
     justify-content: center;
-    align-items: center;
+    width: 100%;
+}
+
+.vaccDescription {
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+}
+
+.links {
+
+    display: flex; 
+    flex-direction: row;
+    margin-top: 20px;
     font-size: 10px;
+}
+
+.homeLinks {
+    display: none;
+}
+
+#addNewLinks {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+#patientlinks {
+    display: flex; 
+    flex-direction: row;
+    /* justify-content: start;
+    align-items: end; */
+    margin-top: 20px;
+    font-size: 10px;
+}
+
+.userthumb {
+    max-width:40%;
+    height:auto;
+    border: 2px solid orange;
+    border-radius: 10px;
+    margin: 10px 0;
 }
 
 .linksContainer {
     margin-top: 5%;
+}
+
+.newPageLinks {
+    display: none;
 }
 
 .wrapper {
@@ -476,7 +557,6 @@ input {
         background-color: lightyellow;
         border-radius: 20px;
         text-align: center;
-        overflow: scroll;
     }
 
 .children {
@@ -503,25 +583,21 @@ input {
     margin: 0;
     display: grid;
     justify-content: center;
-    grid-template-columns: 100%;
-    grid-template-rows: 10% 30% 30% 30%;
-    grid-template-areas: "H"
-                         "P"
-                         "C"
-                         "I"
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10% 40% 50%;
+    grid-template-areas: "H H"
+                         "P P"
+                         "C I"
         
 
 }
 
-
-
-
 .compVacc {
     grid-area: C;
     margin: 0;
+    text-align: center;
     background-color: #f5aeae;
     border-radius: 20px;
-    text-align: center;
     overflow: scroll;
 
 }
