@@ -257,6 +257,7 @@ button:hover {
     background-color: rgb(245, 174, 174);
     border-radius: 20px;
     text-align: center;
+    overflow: auto;
 
 }
 
@@ -591,18 +592,12 @@ input {
 
 }
 
-/* .vaccList {
-    overflow: scroll;
-} */
-
-ß
 .compVacc {
     grid-area: C;
     margin: 0;
+    text-align: center;
     background-color: #f5aeae;
-    text-align: center;
     border-radius: 20px;
-    text-align: center;
     overflow: scroll;
 
 }
