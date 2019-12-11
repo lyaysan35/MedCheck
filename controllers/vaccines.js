@@ -27,26 +27,20 @@ router.use(express.static('public'));
 // });
 
 router.post('/', async (req, res)=> {
-	
-  try {
-     Vaccine.create({
+	Vaccine.create({
      	months: req.body.months,
      	name: req.body.name,
-     	rounds: req.body.rounds
+     	rounds: req.body.rounds,
+     	description: req.body.description
      }, (err, createdVaccine) => {
      	if(err) {
-			
+			res.send(err);
      	} else {
-     		
      		res.render('vaccines/show.ejs', {
     			vaccine: createdVaccine
     		});
      	}
      });
-
-  } catch (err) {
-      res.send(err);
-  }
 });
 
 
