@@ -26,28 +26,28 @@ router.use(express.static('public'));
 //   }
 // });
 
-// router.post('/', async (req, res)=> {
+router.post('/', async (req, res)=> {
 	
-//   try {
-//      Vaccine.create({
-//      	months: req.body.months,
-//      	name: req.body.name,
-//      	rounds: req.body.rounds
-//      }, (err, createdVaccine) => {
-//      	if(err) {
+  try {
+     Vaccine.create({
+     	months: req.body.months,
+     	name: req.body.name,
+     	rounds: req.body.rounds
+     }, (err, createdVaccine) => {
+     	if(err) {
 			
-//      	} else {
+     	} else {
      		
-//      		res.render('vaccines/show.ejs', {
-//     			vaccine: createdVaccine
-//     		});
-//      	}
-//      });
+     		res.render('vaccines/show.ejs', {
+    			vaccine: createdVaccine
+    		});
+     	}
+     });
 
-//   } catch (err) {
-//       res.send(err);
-//   }
-// });
+  } catch (err) {
+      res.send(err);
+  }
+});
 
 
 // EDIT ROUTE
