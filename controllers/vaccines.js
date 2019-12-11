@@ -28,7 +28,7 @@ router.use(express.static('public'));
 
 router.post('/', async (req, res)=> {
 	Vaccine.create({
-     	months: req.body.months,
+     	month: req.body.month,
      	name: req.body.name,
      	rounds: req.body.rounds,
      	description: req.body.description
