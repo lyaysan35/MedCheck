@@ -26,6 +26,8 @@ router.use(express.static('public'));
 //   }
 // });
 
+
+// Add this back if you want to add more vaccines
 router.post('/', async (req, res)=> {
 	Vaccine.create({
      	month: req.body.month,
@@ -88,21 +90,23 @@ router.get('/show/:id', async (req, res) => {
 		res.send(err);
 	}
 });
+
+
 // INDEX ROUTE
-router.get('/', (req, res) => {
+// router.get('/', (req, res) => {
 	
-	Vaccine.find({}, (err, allVaccines) => {
-		if(err) {
+// 	Vaccine.find({}, (err, allVaccines) => {
+// 		if(err) {
 			
-			res.send(err);
-		} else {
-			res.render('vaccines/index.ejs', {
-				vaccines: allVaccines
-			});
+// 			res.send(err);
+// 		} else {
+// 			res.render('vaccines/index.ejs', {
+// 				vaccines: allVaccines
+// 			});
 			
-		}
-	});
-});
+// 		}
+// 	});
+// });
 
 // DELETE ROUTE
 
