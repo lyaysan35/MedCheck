@@ -32,7 +32,7 @@ router.post('/', async (req, res)=> {
 	Vaccine.create({
      	month: req.body.month,
      	name: req.body.name,
-     	rounds: req.body.rounds,
+     	round: req.body.round,
      	description: req.body.description
      }, (err, createdVaccine) => {
      	if(err) {
@@ -112,16 +112,19 @@ router.get('/', (req, res) => {
 
 // DELETE ROUTE
 
-// router.delete('/:id', (req, res) => {
-// 	Vaccine.findByIdAndRemove(req.params.id, (err, foundVaccine) => {
-// 		if(err){
-			
-// 	   } else {
-	   	
-// 	   	res.redirect('/vaccines');
-// 	   }
-// 	});
-// });
+router.delete('/:id', (req, res) => {
+	Vaccine.findByIdAndRemove(req.params.id, (err, foundVaccine) => {
+	   if(err){
+	      res.send(err)
+	   } else {
+            if (req.query.json === 'true') {
+                res.send({vaccine: vaccine})
+            } else {
+                res.redirect('/vaccines');
+            }
+	   }
+	});
+});
 
 // REMAINING ROUTE
 
