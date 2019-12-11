@@ -80,10 +80,14 @@ router.post('/', async (req, res)=> {
 router.get('/show/:id', async (req, res) => {
 	try {
 		Vaccine.findById(req.params.id, (err, vaccine) => {
-			res.render('vaccines/show.ejs', {
-        patientId: req.session.patientId,
-				vaccine: vaccine
-			});
+            if (req.query.json === 'true') {
+                res.send({vaccine: vaccine})
+            } else {
+                res.render('vaccines/show.ejs', {
+                    patientId: req.session.patientId,
+                    vaccine: vaccine
+                });
+            }
 		});
 	} catch(err) {
 		
@@ -93,20 +97,18 @@ router.get('/show/:id', async (req, res) => {
 
 
 // INDEX ROUTE
-// router.get('/', (req, res) => {
+router.get('/', (req, res) => {
 	
-// 	Vaccine.find({}, (err, allVaccines) => {
-// 		if(err) {
+	Vaccine.find({}, (err, allVaccines) => {
+		if(err) {
 			
-// 			res.send(err);
-// 		} else {
-// 			res.render('vaccines/index.ejs', {
-// 				vaccines: allVaccines
-// 			});
+			res.send(err);
+		} else {
+			res.send(allVaccines);
 			
-// 		}
-// 	});
-// });
+		}
+	});
+});
 
 // DELETE ROUTE
 
